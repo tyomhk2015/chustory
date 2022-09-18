@@ -82,6 +82,7 @@ const MetaHead = () => {
       <meta name="robots" content="츄니즘 캐릭터 스토리 | Chunithm Character Story" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="keywords" content="츄니즘, Chunithm, チュウニズム, SEGA, 리듬게임, Rhythm Game, 音ゲー, BMS," />
+      <meta name="rating" content="general" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
   )
