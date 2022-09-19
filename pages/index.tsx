@@ -1,89 +1,47 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
+import { useCharacter } from './hook/useCharacter'
 
 const Home: NextPage = () => {
+
+  const characterHook = useCharacter();
+
+
   return (
-    <div className={styles.container}>
+    <div className={styles['wrapper']}>
       <MetaHead />
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+      <main>
+        <h1 className={styles['main__title']}>Chunithm Character Story</h1>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+      <footer className={styles['footer']}>
+
       </footer>
     </div>
   )
 }
 
 /**
- * 'Head' of HTML
+ * 'Head' tag of HTML
  */
 const MetaHead = () => {
   return (
     // https://developers.google.com/search/docs/crawling-indexing/special-tags
     // <meta name="google-site-verification" content="...">
-    // 
+
     <Head>
-      <title>Chu Story</title>
-      <meta charSet="utf-8" />
-      <meta name="application-name" content="Chustory"/>
+      <title>Chunithm Character Story</title>
+      <meta charSet="UTF-8"/>
+      <meta name="application-name" content="Chunithm Character Story"/>
       <meta name="author" content="©SEGA"/>
-      <meta name="description" content="츄니즘 캐릭터 스토리 | Chunithm Character Story" />
-      <meta name="robots" content="츄니즘 캐릭터 스토리 | Chunithm Character Story" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="keywords" content="츄니즘, Chunithm, チュウニズム, SEGA, 리듬게임, Rhythm Game, 音ゲー, BMS," />
-      <meta name="rating" content="general" />
-      <link rel="icon" href="/favicon.ico" />
+      <meta name="copyright" content="©SEGA"/>
+      <meta name="description" content="츄니즘 캐릭터 스토리 | Chunithm Character Story"/>
+      <meta name="robots" content="츄니즘 캐릭터 스토리 | Chunithm Character Story"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <meta name="keywords" content="츄니즘, Chunithm, チュウニズム, チューニズム, SEGA, セガ, 리듬게임, Rhythm Game, 音ゲー, BMS,"/>
+      <meta name="rating" content="general"/>
+      <link rel="icon" href="/favicon.ico"/>
     </Head>
   )
 }

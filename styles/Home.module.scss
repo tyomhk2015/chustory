@@ -1,0 +1,14 @@
+.wrapper {
+  margin: 4rem auto;
+  max-width: 102.4rem;
+}
+
+.main {
+  &__title {
+    font-size: 4rem;
+  }
+}
+
+.footer {
+  font-size: 1.6rem;
+}
