@@ -11,6 +11,11 @@ body {
   box-sizing: border-box;
 }
 
+ol,
+li {
+  list-style-type: none;
+}
+
 p {
   line-height: 1.5;
 }
