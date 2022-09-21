@@ -1,5 +1,6 @@
-$main-color: #FFC700;
-$sub-color: #AB6700;
+$main-theme: #FFE832;
+$sub-theme: #AB6700;
+$dark-theme: #004465;
 $transition-duration: 0.4s;
 
 .wrapper {
@@ -22,7 +23,7 @@ $transition-duration: 0.4s;
   margin-top: 2rem;
 
   & > li {
-    background-color: #444444;
+    background-color: #004465;
     border-radius: 0.8rem;
     border: 2px solid #FFFFFF;
     height: 21.6rem;
@@ -31,9 +32,14 @@ $transition-duration: 0.4s;
     transition-duration: $transition-duration;
     width: 21.6rem;
 
+    // Thumbnail
+    & > span {
+      pointer-events: none;
+    }
+
     &:hover {
       cursor: pointer;
-      background-color: #DDDDDD50;
+      background-color: $main-theme;
       transform: scale(1.1);
     }
   }
@@ -52,6 +58,7 @@ $transition-duration: 0.4s;
 }
 
 .modal {
+  display: none;
   background-color: #000000E6;
   bottom: 0;
   left: 0;
@@ -66,12 +73,33 @@ $transition-duration: 0.4s;
       padding: 4rem;
       position: relative;
     }
+
+    &__image {
+      position: relative;
+      height: 60vh;
+    }
+
+    &__title {
+      color: #FFFFFF;
+      font-size: 4rem;
+      text-align: center;
+    }
   }
 
   &__close-button {
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+    // text-indent: 100%;
+    // white-space: nowrap;
+    // overflow: hidden;
+    color: #FFFFFF;
+    font-size: 4rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &--active {
+    display: block;
   }
 }
 

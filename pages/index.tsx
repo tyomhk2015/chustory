@@ -1,9 +1,10 @@
+import classNames from 'classnames';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
 import styles from '../styles/Home.module.scss';
-import { ICharacterList, useCharacter } from './hook/useCharacter';
+import { ICharacterList, IModal, useCharacter } from './hook/useCharacter';
 
 const Home: NextPage = () => {
   const characterHook = useCharacter();
@@ -15,19 +16,15 @@ const Home: NextPage = () => {
         <h1 className={styles['main__title']}>Chunithm Character Story</h1>
         {characterHook.characters.length > 0 && (
           <>
-            <CharacterList characters={characterHook.characters} version='NEW'/>
-            <CharacterList characters={characterHook.characters} version='PARADISE'/>
-            <CharacterList characters={characterHook.characters} version='CRYSTAL'/>
-            <CharacterList characters={characterHook.characters} version='AMAZON'/>
-            <CharacterList characters={characterHook.characters} version='STAR'/>
-            <CharacterList characters={characterHook.characters} version='AIR'/>
-            <CharacterList characters={characterHook.characters} version=''/>
+            {characterHook.VERSIONS.map((version) => (
+              <CharacterList key={version} characters={characterHook.characters} version={version} selectCharacter={characterHook.selectCharacter}/>
+            ))}
           </>
         )}
       </main>
 
       <footer className={styles['footer']}></footer>
-      <Modal />
+      <Modal isActive={!!characterHook.selectedCharacter} getCharacter={characterHook.getCharacter} unselectCharacter={characterHook.unselectCharacter}/>
     </div>
   );
 };
@@ -77,7 +74,7 @@ const CharacterList: React.FC<ICharacterList> = (prop) => {
           <h2 className={styles['character-list__version']}>CHUNITHM {prop.version}</h2>
             <ul className={styles['character-list']}>
               {filteredCharacters.map((character, index) => (
-                <li key={index}>
+                <li key={index} onClick={prop.selectCharacter} data-key={character.id}>
                   <Image src={character.thumbnail} alt={character.name} layout={'fill'} objectFit={'contain'} />
                 </li>
               ))}
@@ -91,21 +88,26 @@ const CharacterList: React.FC<ICharacterList> = (prop) => {
 /**
  * Modal for showing selected character's detail.
  */
-const Modal: React.FC = () => {
+const Modal: React.FC<IModal> = (prop) => {
+  const character = prop.getCharacter();
   return (
-    <div className={styles['modal']}>
-      <div className={styles['modal__content-wrapper']}>
-        <CloseButton />
+    <>
+    {character && (
+      <div className={classNames(styles['modal'], {[styles['modal--active']]: prop.isActive})}>
+        <div className={styles['modal__content-wrapper']}>
+          <div className={styles['modal__close-button']} onClick={prop.unselectCharacter}>
+            Close
+          </div>
+          <section className={styles['modal__content']}>
+            <h2 className={styles['modal__content__title']}>{character.name}</h2>
+            <div className={styles['modal__content__image']}>
+              <Image src={character.image} alt={character.name} layout={'fill'} objectFit={'contain'}/>
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
-  )
-}
-
-const CloseButton: React.FC = () => {
-  return (
-    <div className={styles['modal__close-button']}>
-      Close
-    </div>
+    )}
+    </>
   )
 }
 
