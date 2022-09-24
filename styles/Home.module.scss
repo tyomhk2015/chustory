@@ -17,20 +17,23 @@ $transition-duration: 0.4s;
 }
 
 .character-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  
   margin-top: 2rem;
 
   & > li {
+    aspect-ratio: 1/1;
     background-color: #004465;
     border-radius: 0.8rem;
     border: 2px solid #FFFFFF;
-    height: 21.6rem;
+    box-shadow: 0 0.4rem 1rem 0 #444444;
+    max-width: 21.6rem;
     overflow: hidden;
     position: relative;
     transition-duration: $transition-duration;
-    width: 21.6rem;
+    
 
     // Thumbnail
     & > span {
@@ -49,6 +52,7 @@ $transition-duration: 0.4s;
   }
 
   &__version {
+    color: #333333;
     font-size: 3.2rem;
   }
 }
@@ -69,14 +73,17 @@ $transition-duration: 0.4s;
   &__content {
     &-wrapper {
       margin: 0 auto;
-      max-width: 102.4rem;
+      max-height: 100vh;
+      max-width: 100vw;
+      overflow-y: auto;
       padding: 4rem;
       position: relative;
     }
 
     &__image {
       position: relative;
-      height: 60vh;
+      height: 100vh;
+      max-height: 40rem;
     }
 
     &__title {
@@ -87,14 +94,35 @@ $transition-duration: 0.4s;
   }
 
   &__close-button {
-    // text-indent: 100%;
-    // white-space: nowrap;
-    // overflow: hidden;
     color: #FFFFFF;
     font-size: 4rem;
+    overflow: hidden;
+    position: fixed;
+    right: 1rem;
+    text-indent: 100%;
+    white-space: nowrap;
 
     &:hover {
       cursor: pointer;
+    }
+
+    &::after,
+    &::before {
+      background-color: #FFFFFF;
+      content: '';
+      display: block;
+      height: 0.2rem;
+      position: absolute;
+      top: 50%;
+      width: 8rem;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
     }
   }
 
@@ -104,14 +132,28 @@ $transition-duration: 0.4s;
 }
 
 @media only screen and (max-width: 768px) {
+  .wrapper {
+    padding: 1rem;
+  }
+
+  .main {
+    &__title {
+      color: #333333;
+      font-size: 2.8rem;
+    }
+  }
+
   .character-list {
-    &__version {
-      font-size: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+
+    &-wrapper {
+      margin-top: 2.8rem;
     }
 
-    & > li {
-      height: 10.8rem;
-      width: 10.8rem;
+    &__version {
+      color: #333333;
+      font-size: 2rem;
     }
   }
 }
