@@ -34,6 +34,15 @@ export interface IModal {
 const VERSIONS = ['NEW', 'PARADISE', 'CRYSTAL', 'AMAZON', 'STAR', 'AIR', ''];
 
 /**
+ * Make HTML and body tag scrollable/unscrollable.
+ * @param doFix 
+ */
+const toogleRootDOMsFix = (doFix: boolean) => {
+  const rootDOMs = document.querySelectorAll('html, body');
+  rootDOMs.forEach((DOM) => doFix ? DOM.classList.add('fixed') : DOM.classList.remove('fixed'));
+}
+
+/**
  * A custom hook for main page and characters data.
  */
 export const useCharacter = () => {
@@ -42,6 +51,7 @@ export const useCharacter = () => {
   const selectCharacter = (e: React.MouseEvent<HTMLElement>) => {
     const characterID = e.currentTarget.getAttribute('data-key');
     characterID && setSelectedCharacter(characterID);
+    toogleRootDOMsFix(true);
   };
 
   const getCharacter = () : ICharacter | undefined => {
@@ -50,6 +60,7 @@ export const useCharacter = () => {
 
   const unselectCharacter = () => {
     setSelectedCharacter('');
+    toogleRootDOMsFix(false);
   }
 
   return {

@@ -21,7 +21,7 @@ p {
 }
 
 ::-webkit-scrollbar {
-  width: 0.8rem;
+  width: 0.4rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -35,4 +35,9 @@ p {
 ::selection {
   color: none;
   background: none;
+}
+
+.fixed {
+  overflow: hidden;
+  width: 100%;
 }
