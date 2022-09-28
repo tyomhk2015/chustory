@@ -4,7 +4,12 @@ import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
 import styles from '../styles/Home.module.scss';
-import { ICharacterList, IModal, useCharacter } from './hook/useCharacter';
+import {
+  ICharacterList,
+  IEpisodeList,
+  IModal,
+  useCharacter,
+} from './hook/useCharacter';
 
 const Home: NextPage = () => {
   const characterHook = useCharacter();
@@ -17,14 +22,26 @@ const Home: NextPage = () => {
         {characterHook.characters.length > 0 && (
           <>
             {characterHook.VERSIONS.map((version) => (
-              <CharacterList key={version} characters={characterHook.characters} version={version} selectCharacter={characterHook.selectCharacter}/>
+              <CharacterList
+                key={version}
+                characters={characterHook.characters}
+                version={version}
+                selectCharacter={characterHook.selectCharacter}
+              />
             ))}
           </>
         )}
       </main>
 
       <footer className={styles['footer']}></footer>
-      <Modal isActive={!!characterHook.selectedCharacter} getCharacter={characterHook.getCharacter} unselectCharacter={characterHook.unselectCharacter}/>
+      {characterHook.getCharacter() && (
+        <Modal
+          isActive={!!characterHook.selectedCharacter}
+          getCharacter={characterHook.getCharacter}
+          unselectCharacter={characterHook.unselectCharacter}
+          toggleStoryBox={characterHook.toggleStoryBox}
+        />
+      )}
     </div>
   );
 };
@@ -66,19 +83,33 @@ const MetaHead = () => {
  * A list of charaters, grouped by each versions.
  */
 const CharacterList: React.FC<ICharacterList> = (prop) => {
-  const filteredCharacters = prop.characters.filter((character) => character.version === prop.version);
+  const filteredCharacters = prop.characters.filter(
+    (character) => character.version === prop.version
+  );
+
   return (
     <>
       {filteredCharacters.length > 0 && (
         <section className={styles['character-list-wrapper']}>
-          <h2 className={styles['character-list__version']}>CHUNITHM {prop.version}</h2>
-            <ul className={styles['character-list']}>
-              {filteredCharacters.map((character, index) => (
-                <li key={index} onClick={prop.selectCharacter} data-key={character.id}>
-                  <Image src={character.thumbnail} alt={character.name} layout={'fill'} objectFit={'contain'} />
-                </li>
-              ))}
-            </ul>
+          <h2 className={styles['character-list__version']}>
+            CHUNITHM {prop.version}
+          </h2>
+          <ul className={styles['character-list']}>
+            {filteredCharacters.map((character, index) => (
+              <li
+                key={index}
+                onClick={prop.selectCharacter}
+                data-key={character.id}
+              >
+                <Image
+                  src={character.thumbnail}
+                  alt={character.name}
+                  layout={'fill'}
+                  objectFit={'contain'}
+                />
+              </li>
+            ))}
+          </ul>
         </section>
       )}
     </>
@@ -90,25 +121,75 @@ const CharacterList: React.FC<ICharacterList> = (prop) => {
  */
 const Modal: React.FC<IModal> = (prop) => {
   const character = prop.getCharacter();
+
   return (
     <>
-    {character && (
-      <div className={classNames(styles['modal'], {[styles['modal--active']]: prop.isActive})}>
-        <div className={styles['modal__content-wrapper']}>
-          <div className={styles['modal__close-button']} onClick={prop.unselectCharacter}>
-            Close
-          </div>
-          <section className={styles['modal__content']}>
-            <h2 className={styles['modal__content__title']}>{character.name}</h2>
-            <div className={styles['modal__content__image']}>
-              <Image src={character.image} alt={character.name} layout={'fill'} objectFit={'contain'}/>
+      {character && (
+        <div
+          className={classNames(styles['modal'], {
+            [styles['modal--active']]: prop.isActive,
+          })}
+        >
+          <div className={styles['modal__content-wrapper']}>
+            <div
+              className={styles['modal__close-button']}
+              onClick={prop.unselectCharacter}
+            >
+              Close
             </div>
-          </section>
+            <section className={styles['modal__content']}>
+              <h2 className={styles['modal__content__title']}>
+                {character.name}
+              </h2>
+              <div className={styles['modal__content__image']}>
+                <Image
+                  src={character.image}
+                  alt={character.name}
+                  layout={'fill'}
+                  objectFit={'contain'}
+                />
+              </div>
+              {character.episodes.length > 0 && (
+                <EpisodeList episodes={character.episodes} toggleStoryBox={prop.toggleStoryBox}/>
+              )}
+            </section>
+          </div>
         </div>
-      </div>
-    )}
+      )}
     </>
-  )
-}
+  );
+};
+
+/**
+ * Episodes of the selected character.
+ */
+const EpisodeList: React.FC<IEpisodeList> = (prop) => {
+  const { episodes } = prop;
+
+  return (
+    <div className={styles['modal__content__episodes-wrapper']}>
+      <ol className={styles['modal__content__episodes']}>
+        {episodes.map((episode, index) => (
+          <li
+            key={index}
+            onClick={prop.toggleStoryBox}
+            data-flag={styles['modal__content__episodes__story--closed']}
+            className={classNames(styles['modal__content__episodes__story'], styles['modal__content__episodes__story--closed'])}>
+            <p className={styles['modal__content__episodes__story__number']}>
+              Episode {index + 1}
+            </p>
+            <h3 className={styles['modal__content__episodes__story__title']}>
+              {episode.title}
+            </h3>
+            <p className={styles['modal__content__episodes__story__subtitle']}>
+              {episode.subtitle}
+            </p>
+            <p className={styles['modal__content__episodes__story__content']} dangerouslySetInnerHTML={{ __html: episode.story }} />
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+};
 
 export default Home;
