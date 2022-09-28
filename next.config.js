@@ -5,6 +5,10 @@ const nextConfig = {
   images: {
     domains: ['chunithm.sega.jp'],
   },
+  i18n: {
+    locales: ["ko"],
+    defaultLocale: "ko",
+  },
 }
 
 module.exports = nextConfig
