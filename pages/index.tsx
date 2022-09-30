@@ -9,7 +9,7 @@ import {
   IEpisodeList,
   IModal,
   useCharacter,
-} from './hook/useCharacter';
+} from '../hook/useCharacter';
 
 const Home: NextPage = () => {
   const characterHook = useCharacter();
