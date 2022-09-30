@@ -27,6 +27,7 @@ model Episode {
   subtitle    String
   story       String
   order       Int
+  updatedTime DateTime  @updatedAt
 }
 
 model Version {
