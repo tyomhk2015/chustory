@@ -25,7 +25,7 @@ model Episode {
   characterId String    @unique
   title       String
   subtitle    String
-  story       String
+  story       String    @db.LongText
   order       Int
   updatedTime DateTime  @updatedAt
 }
