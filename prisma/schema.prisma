@@ -14,6 +14,7 @@ datasource db {
 
 model Character {
   id          String    @id
+  name        String
   episodes    Episode[]
   version     Int
   updatedTime DateTime  @updatedAt
