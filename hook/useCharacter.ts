@@ -3,10 +3,14 @@ import React, { MouseEventHandler, useState } from 'react';
 interface ICharacter {
   id: string;
   name: string;
-  thumbnail: string;
-  image: string;
-  version: string;
+  version: number;
   episodes: IEpisode[];
+}
+
+export interface ICharacterAdd {
+  id: string;
+  name: string;
+  version: number;
 }
 
 export interface IEpisode {
@@ -18,7 +22,8 @@ export interface IEpisode {
 
 export interface ICharacterList {
   characters: ICharacter[];
-  version: string;
+  version: number;
+  versionName: string;
   selectCharacter: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
@@ -38,7 +43,7 @@ export interface IEpisodeList {
 /**
  * A list of all Chunithm versions.
  */
-const VERSIONS = ['NEW', 'PARADISE', 'CRYSTAL', 'AMAZON', 'STAR', 'AIR', ''];
+const VERSIONS = ['', 'AIR', 'STAR', 'AMAZON', 'CRYSTAL', 'PARADISE', 'NEW'];
 
 /**
  * Make HTML and body tag scrollable/unscrollable.
@@ -102,18 +107,12 @@ export const useCharacter = () => {
 /**
  * Sample character data
  */
-const thumbnailBaseURL =
-  'https://chunithm.sega.jp/storage/chara/chunithm-new/thumbnail/';
-const illustrationBaseURL =
-  'https://chunithm.sega.jp/storage/chara/chunithm-new/illustration//';
 const characters: ICharacter[] = [
   // NEW
   {
     id: 'n_c_2',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_c_2.png`,
-    image: `${illustrationBaseURL}n_c_2.png`,
-    version: 'NEW',
+    version: 6,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -216,9 +215,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_c_1',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_c_1.png`,
-    image: `${illustrationBaseURL}n_c_1.png`,
-    version: 'NEW',
+    version: 6,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -321,9 +318,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_6_4',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_6_4.png`,
-    image: `${illustrationBaseURL}n_6_4.png`,
-    version: 'NEW',
+    version: 6,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -426,9 +421,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_6_3',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_6_3.png`,
-    image: `${illustrationBaseURL}n_6_3.png`,
-    version: 'NEW',
+    version: 6,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -531,9 +524,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_6_2',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_6_2.png`,
-    image: `${illustrationBaseURL}n_6_2.png`,
-    version: 'NEW',
+    version: 6,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -636,9 +627,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_c_1',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_6_1.png`,
-    image: `${illustrationBaseURL}n_6_1.png`,
-    version: 'NEW',
+    version: 6,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -742,9 +731,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_5_4',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_5_4.png`,
-    image: `${illustrationBaseURL}n_5_4.png`,
-    version: 'PARADISE',
+    version: 5,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -775,9 +762,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_5_3',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_5_3.png`,
-    image: `${illustrationBaseURL}n_5_3.png`,
-    version: 'PARADISE',
+    version: 5,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -808,9 +793,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_5_2',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_5_2.png`,
-    image: `${illustrationBaseURL}n_5_2.png`,
-    version: 'PARADISE',
+    version: 5,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -841,9 +824,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_5_1',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_5_1.png`,
-    image: `${illustrationBaseURL}n_5_1.png`,
-    version: 'PARADISE',
+    version: 5,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -874,9 +855,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_4_5',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_4_5.png`,
-    image: `${illustrationBaseURL}n_4_5.png`,
-    version: 'PARADISE',
+    version: 5,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,
@@ -907,9 +886,7 @@ const characters: ICharacter[] = [
   {
     id: 'n_4_4',
     name: '각성자 바시안',
-    thumbnail: `${thumbnailBaseURL}n_4_4.png`,
-    image: `${illustrationBaseURL}n_4_4.png`,
-    version: 'PARADISE',
+    version: 5,
     episodes: [
       {
         title: `신의 거짓말과 깨닳은 자.`,

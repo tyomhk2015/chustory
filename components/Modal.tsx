@@ -4,6 +4,9 @@ import { IModal } from "../hook/useCharacter";
 import styles from '../styles/Home.module.scss';
 import { EpisodeList } from "./EpisodeList";
 
+const ILLUSTRATION_URL = 'https://chunithm.sega.jp/storage/chara/chunithm-new/illustration//';
+const IMG_TYPE = '.png';
+
 /**
  * Modal for showing selected character's detail.
  */
@@ -31,7 +34,7 @@ export const Modal: React.FC<IModal> = (prop) => {
               </h2>
               <div className={styles['modal__content__image']}>
                 <Image
-                  src={character.image}
+                  src={ILLUSTRATION_URL + character.id + IMG_TYPE}
                   alt={character.name}
                   layout={'fill'}
                   objectFit={'contain'}

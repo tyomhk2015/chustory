@@ -14,11 +14,12 @@ const Home: NextPage = () => {
         <h1 className={styles['main__title']}>Chunithm Character Story</h1>
         {characterHook.characters.length > 0 && (
           <>
-            {characterHook.VERSIONS.map((version) => (
+            {characterHook.VERSIONS.map((version, index) => (
               <CharacterList
                 key={version}
                 characters={characterHook.characters}
-                version={version}
+                version={index}
+                versionName={version}
                 selectCharacter={characterHook.selectCharacter}
               />
             ))}
