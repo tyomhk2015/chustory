@@ -2,14 +2,14 @@ import React, { MouseEventHandler, useState } from 'react';
 
 interface ICharacter {
   id: string;
-  name: string
+  name: string;
   version: number;
   episodes: IEpisode[];
 }
 
 export interface ICharacterAdd {
   id: string;
-  name: string,
+  name: string;
   version: number;
 }
 
@@ -18,10 +18,6 @@ export interface IEpisode {
   subtitle: string;
   story: string;
   order: number;
-}
-
-export interface IEpisodeAdd extends IEpisode{
-  characterId: string;
 }
 
 export interface ICharacterList {

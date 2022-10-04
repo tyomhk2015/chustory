@@ -1,6 +1,11 @@
 import prismaClient from '../../lib/prismaClient';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+// method: 'POST',
+// headers: {
+//   'Content-Type': 'application/json',
+// },
+// body: JSON.stringify(objectWithData),
 interface Data {
   [key: string]: string
 }

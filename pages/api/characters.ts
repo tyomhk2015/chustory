@@ -1,6 +1,5 @@
 import prismaClient from '../../lib/prismaClient';
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { METHODS } from 'http';
 
 interface Version {
   id: number;
