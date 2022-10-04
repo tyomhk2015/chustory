@@ -106,6 +106,7 @@ $transition-duration: 0.4s;
       display: flex;
       flex-wrap: nowrap;
       gap: 2rem;
+      justify-content: center;
       padding-top: 4rem;
 
       &__story {
