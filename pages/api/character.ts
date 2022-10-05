@@ -2,11 +2,6 @@ import prismaClient from '../../lib/prismaClient';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { IEpisode } from '../../hook/useCharacter';
 
-// method: 'POST',
-// headers: {
-//   'Content-Type': 'application/json',
-// },
-// body: JSON.stringify(objectWithData),
 interface Data {
   [key: string]: string
 }
@@ -64,7 +59,7 @@ export default async function characterHandler(
         subtitle: episode.subtitle,
         story: episode.story,
         order: +episode.order,
-        identifier: character.id + episode.order,
+        identifier: character.id + 'o' + episode.order,
         character: {
           connect: {
             id: character.id
