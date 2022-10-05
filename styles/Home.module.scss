@@ -18,7 +18,7 @@ $transition-duration: 0.4s;
 
 .character-list {
   display: grid;
-  gap: 2rem;
+  gap: 2.8rem;
   grid-template-columns: repeat(4, 1fr);
   
   margin-top: 2rem;
@@ -58,7 +58,22 @@ $transition-duration: 0.4s;
 }
 
 .footer {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  gap: 1.6rem;
+  margin-top: 4rem;
+  text-align: center;
+
+  & a {
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  &__copyright,
+  &__contact {
+    display: block;
+    margin-top: 1rem;
+  }
 }
 
 .modal {
@@ -103,10 +118,9 @@ $transition-duration: 0.4s;
 
     &__episodes {
       align-items: flex-end;
+      justify-content: space-between;
       display: flex;
-      flex-wrap: nowrap;
       gap: 2rem;
-      justify-content: center;
       padding-top: 4rem;
 
       &__story {
@@ -115,7 +129,7 @@ $transition-duration: 0.4s;
         border: 2px solid #AAAAAA;
         color: #FFFFFF;
         flex-shrink: 0;
-        max-width: 40%;
+        max-width: 40vw;
         padding: 1.6rem;
         transform: rotateX(180deg);
         user-select: none;
@@ -127,32 +141,31 @@ $transition-duration: 0.4s;
         }
 
         &__title {
-          font-size: 2rem;
+          font-size: 2.8rem;
           font-weight: 700;
           margin-top: 2rem;
         }
 
         &__subtitle {
-          font-size: 1.4rem;
+          font-size: 2rem;
           font-weight: 700;
           margin-top: 2rem;
         }
 
         &__content {
-          font-size: 1.2rem;
+          font-size: 1.6rem;
           margin-top: 2rem;;
         }
 
         &--closed {
           border: 1px solid #8A8A8A;
           height: 16rem;
-          max-width: 20%;
-
           overflow: hidden;
           transition: background-color $transition-duration;
 
           &:hover {
             background-color: #333333;
+            cursor: pointer;
           }
 
           & > .modal__content__episodes__story__subtitle {
@@ -165,9 +178,9 @@ $transition-duration: 0.4s;
       }
 
       &-wrapper {
-        margin-top: 4rem;
+        margin: 4rem auto 0;
         overflow-x: auto;
-        padding-bottom: 2rem;
+        padding: 0 1rem 2rem;
         transform: rotateX(180deg);
         -webkit-overflow-scrolling: touch;
 
@@ -262,10 +275,22 @@ $transition-duration: 0.4s;
 
       &__episodes {
         &__story {
-          max-width: 80%;
+          max-width: 80vw;
 
-          &--closed {
-            max-width: 60%;
+          &__number {
+            font-size: 1.2rem;
+          }
+  
+          &__title {
+            font-size: 2rem;
+          }
+  
+          &__subtitle {
+            font-size: 1.6rem;
+          }
+  
+          &__content {
+            font-size: 1.4rem;
           }
         }
   
