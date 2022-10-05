@@ -1,6 +1,6 @@
-import React, { MouseEventHandler, useState } from 'react';
+import React, { MouseEventHandler, useEffect, useState } from 'react';
 
-interface ICharacter {
+export interface ICharacter {
   id: string;
   name: string;
   version: number;
@@ -44,6 +44,7 @@ export interface IEpisodeList {
  * A list of all Chunithm versions.
  */
 const VERSIONS = ['', 'AIR', 'STAR', 'AMAZON', 'CRYSTAL', 'PARADISE', 'NEW'];
+// const VERSIONS = ['NEW', 'PARADISE', 'CRYSTAL', 'AMAZON', 'STAR', 'AIR', ''];
 
 /**
  * Make HTML and body tag scrollable/unscrollable.
@@ -74,7 +75,8 @@ const toggleStoryBox = (e: React.MouseEvent<HTMLLIElement>) => {
 /**
  * A custom hook for main page and characters data.
  */
-export const useCharacter = () => {
+export const useCharacter = (characterData: ICharacter[]) => {
+  const characters = characterData;
   const [selectedCharacter, setSelectedCharacter] = useState<string>();
 
   const selectCharacter = (e: React.MouseEvent<HTMLElement>) => {
@@ -107,7 +109,7 @@ export const useCharacter = () => {
 /**
  * Sample character data
  */
-const characters: ICharacter[] = [
+const characters_temp: ICharacter[] = [
   // NEW
   {
     id: 'n_c_2',
