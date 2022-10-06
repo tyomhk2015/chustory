@@ -1,13 +1,11 @@
 import prismaClient from '../lib/prismaClient';
-import type { NextPage } from 'next';
-import { GetServerSideProps } from 'next';
-import { InferGetServerSidePropsType } from 'next'
+import type { GetStaticProps, NextPage, InferGetStaticPropsType } from 'next';
 import React from 'react';
 import styles from '../styles/Home.module.scss';
 import { useCharacter } from '../hook/useCharacter';
 import { MetaHead, CharacterList, Modal, FooterContent } from '../components';
 
-const Home: NextPage = ({data: characterData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Home: NextPage = ({data: characterData}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const characterHook = useCharacter(characterData);
 
   return (
@@ -47,12 +45,7 @@ const Home: NextPage = ({data: characterData}: InferGetServerSidePropsType<typeo
 };
 
 // This gets called on every request
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=600, stale-while-revalidate=600'
-  );
-
+export const getStaticProps: GetStaticProps = async () => {
   const characters = JSON.parse(JSON.stringify(await prismaClient.character.findMany({
     include: {
       episodes: true, // Return all episodes
