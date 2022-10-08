@@ -171,7 +171,7 @@ $transition-duration: 0.4s;
           & > .modal__content__episodes__story__subtitle {
             display: -webkit-box;
             overflow: hidden;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
           }
         }
