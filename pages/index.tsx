@@ -48,7 +48,11 @@ const Home: NextPage = ({data: characterData}: InferGetStaticPropsType<typeof ge
 export const getStaticProps: GetStaticProps = async () => {
   const characters = JSON.parse(JSON.stringify(await prismaClient.character.findMany({
     include: {
-      episodes: true, // Return all episodes
+      episodes: {
+        orderBy: {
+          order: 'asc',
+        }
+      }, // Return all episodes
     },
   })));
 
