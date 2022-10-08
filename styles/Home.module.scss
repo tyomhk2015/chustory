@@ -184,6 +184,10 @@ $transition-duration: 0.4s;
         transform: rotateX(180deg);
         -webkit-overflow-scrolling: touch;
 
+        &::-webkit-scrollbar {
+          height: 1.2rem;
+        }
+
         &::-webkit-scrollbar-track {
           border-radius: 0.8rem;
         }
