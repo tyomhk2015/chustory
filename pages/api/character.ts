@@ -59,7 +59,7 @@ export default async function characterHandler(
         subtitle: episode.subtitle,
         story: episode.story,
         order: +episode.order,
-        identifier: character.id + 'o' + episode.order,
+        identifier: character.id + '/' + episode.order,
         character: {
           connect: {
             id: character.id
