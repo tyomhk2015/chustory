@@ -46,7 +46,7 @@ export default async function characterHandler(
   inputEpisodes.forEach(async (episode, index) => {
     const createdEpisode = await prismaClient.episode.upsert({
       where: {
-        identifier: character.id + episode.order
+        identifier: character.id + '/' + episode.order
       },
       update: {
         title: episode.title,
