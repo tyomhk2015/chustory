@@ -8,8 +8,6 @@ import { MetaHead, CharacterList, Modal, FooterContent } from '../components';
 const Home: NextPage = ({data: characterData}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const characterHook = useCharacter(characterData);
 
-  console.log(characterData);
-
   return (
     <div className={styles['wrapper']}>
       <MetaHead />
