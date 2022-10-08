@@ -128,12 +128,18 @@ $transition-duration: 0.4s;
         box-shadow: 0 0.2rem 0.4rem 0.2rem #000000;
         border: 2px solid #AAAAAA;
         color: #FFFFFF;
+        cursor: pointer;
         flex-shrink: 0;
         max-width: 40vw;
         padding: 1.6rem;
         transform: rotateX(180deg);
+        transition: background-color $transition-duration;
         user-select: none;
         width: 100%;
+
+        &:hover {
+          background-color: #333333;
+        }
 
         &__number {
           font-size: 1.6rem;
@@ -161,17 +167,11 @@ $transition-duration: 0.4s;
           border: 1px solid #8A8A8A;
           height: 16rem;
           overflow: hidden;
-          transition: background-color $transition-duration;
-
-          &:hover {
-            background-color: #333333;
-            cursor: pointer;
-          }
 
           & > .modal__content__episodes__story__subtitle {
             display: -webkit-box;
             overflow: hidden;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
           }
         }
@@ -183,6 +183,10 @@ $transition-duration: 0.4s;
         padding: 0 1rem 2rem;
         transform: rotateX(180deg);
         -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+          height: 1.2rem;
+        }
 
         &::-webkit-scrollbar-track {
           border-radius: 0.8rem;

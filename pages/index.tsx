@@ -45,11 +45,25 @@ const Home: NextPage = ({data: characterData}: InferGetStaticPropsType<typeof ge
 };
 
 // This gets called on every request
+// Return all characters with their own episodes.
 export const getStaticProps: GetStaticProps = async () => {
   const characters = JSON.parse(JSON.stringify(await prismaClient.character.findMany({
-    include: {
-      episodes: true, // Return all episodes
-    },
+    select: {
+      id: true,
+      name: true,
+      version: true,
+        episodes: {
+          select: {
+            characterId: true,
+            title: true,
+            subtitle: true,
+            story: true
+          },
+          orderBy: {
+            order: 'asc',
+          }
+        },
+    }
   })));
 
   return { props: { data : characters } }
