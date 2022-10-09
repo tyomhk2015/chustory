@@ -212,6 +212,12 @@ $transition-duration: 0.4s;
 
     &:hover {
       cursor: pointer;
+      transition: $transition-duration;
+
+      &::after,
+      &::before {
+        height: 0.3rem;
+      }
     }
 
     &::after,
@@ -295,6 +301,10 @@ $transition-duration: 0.4s;
   
           &__content {
             font-size: 1.4rem;
+          }
+
+          &--closed {
+            height: 14rem;
           }
         }
   
