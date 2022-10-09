@@ -19,21 +19,20 @@ export default async function characterHandler(
 
   // Check if the character id exist in the DB
   // If character ID already exist do not do anything.
-  const loadedCharacter = await prismaClient.character.findUnique({
+  const createdCharacter = await prismaClient.character.upsert({
     where: {
       id: character.id
+    },
+    update: {
+      name: character.name,
+      version: character.version,
+    },
+    create: {
+      id: character.id,
+      name: character.name,
+      version: character.version,
     }
   });
-
-  if (loadedCharacter === null) {
-    const createdCharacter = await prismaClient.character.create({
-      data: {
-        id: character.id,
-        name: character.name,
-        version: character.version,
-      }
-    });
-  }
 
   // Check if the episode of the character with current order exist.
   // If exists, updated the story.
@@ -69,5 +68,5 @@ export default async function characterHandler(
     });
   });
 
-  res.status(200).json({name: 'characterHandler'});
+  res.status(200);
 }
