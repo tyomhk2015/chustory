@@ -168,7 +168,7 @@ $transition-duration: 0.4s;
         }
 
         &__subtitle {
-          font-size: 2rem;
+          font-size: 1.8rem;
           font-weight: 700;
           margin-top: 2rem;
         }
@@ -270,6 +270,10 @@ $transition-duration: 0.4s;
     &__title {
       color: #333333;
       font-size: 2.8rem;
+
+      &::after {
+        width: 3.7rem;
+      }
     }
   }
 
@@ -307,7 +311,7 @@ $transition-duration: 0.4s;
           }
   
           &__title {
-            font-size: 2rem;
+            font-size: 2.4rem;
           }
   
           &__subtitle {
