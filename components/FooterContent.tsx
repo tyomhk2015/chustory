@@ -15,6 +15,11 @@ import styles from '../styles/Home.module.scss';
       <small className={styles['footer__copyright']}>
         2022 &copy;ChuStory
       </small>
+      {/* <small className={styles['footer__hit']}>
+        <a href="https://hits.seeyoufarm.com">
+          <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fwww.chustory.net" alt='Chustory hit'/>
+        </a>
+      </small> */}
       <small className={styles['footer__contact']}>
         chustory2022@gmail.com
       </small>
