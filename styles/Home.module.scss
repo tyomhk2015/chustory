@@ -84,7 +84,8 @@ $transition-duration: 0.4s;
   }
 
   &__copyright,
-  &__contact {
+  &__contact,
+  &__hit {
     display: block;
     margin-top: 1rem;
   }
@@ -106,7 +107,7 @@ $transition-duration: 0.4s;
       max-width: 100vw;
       overflow-x: hidden;
       overflow-y: auto;
-      padding: 4rem;
+      padding: 4rem 12rem;
       position: relative;
     }
 
