@@ -42,7 +42,7 @@ export default async function characterHandler(
     inputEpisodes.push(value as IEpisode);
   }
 
-  inputEpisodes.forEach(async (episode, index) => {
+  inputEpisodes.forEach(async (episode) => {
     const createdEpisode = await prismaClient.episode.upsert({
       where: {
         identifier: character.id + '/' + episode.order
@@ -68,5 +68,5 @@ export default async function characterHandler(
     });
   });
 
-  res.status(200);
+  res.status(200).json({result: 'Success'});
 }
