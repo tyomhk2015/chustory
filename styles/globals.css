@@ -1,6 +1,6 @@
 html,
 body {
-  background: linear-gradient(135deg, #FFE832, #AB6700);
+  background: linear-gradient(#E0E6F8, #122A9A 90%, #0F373D);
   font-family: "Montserrat", "Noto Sans JP", sans-serif;
   font-size: 10px;
 }
@@ -26,11 +26,11 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #FFE832;
+  background-color: #122A9A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #004465;
+  background-color: #7688d5;
 }
 
 ::selection {

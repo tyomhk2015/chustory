@@ -1,10 +1,8 @@
-$main-theme: #FFE832;
-$sub-theme: #AB6700;
-$dark-theme: #004465;
+$highlight-color: #FFE832;
 $transition-duration: 0.4s;
 
 .wrapper {
-  margin: 2rem auto;
+  margin: 0 auto;
   max-width: 102.4rem;
   min-height: 100vh;
   padding: 4rem;
@@ -56,7 +54,7 @@ $transition-duration: 0.4s;
 
     &:hover {
       cursor: pointer;
-      background-color: $main-theme;
+      background-color: $highlight-color;
       transform: scale(1.1);
     }
   }
@@ -72,13 +70,14 @@ $transition-duration: 0.4s;
 }
 
 .footer {
+  color: #FFFFFF;
   font-size: 1.4rem;
   gap: 1.6rem;
   margin-top: 4rem;
   text-align: center;
 
   & a {
-    color: #000000;
+    color: #FFFFFF;
     font-weight: 700;
     text-decoration: none;
   }
