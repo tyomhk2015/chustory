@@ -11,6 +11,7 @@ $transition-duration: 0.4s;
 
 .main {
   &__title {
+    color: #FFFFFF;
     font-size: 4.8rem;
     position: relative;
 
@@ -64,7 +65,7 @@ $transition-duration: 0.4s;
   }
 
   &__version {
-    color: #333333;
+    color: #FFFFFF;
     font-size: 3.2rem;
   }
 }
@@ -267,7 +268,7 @@ $transition-duration: 0.4s;
 
   .main {
     &__title {
-      color: #333333;
+      color: #FFFFFF;
       font-size: 2.8rem;
 
       // &::after {
@@ -285,7 +286,7 @@ $transition-duration: 0.4s;
     }
 
     &__version {
-      color: #333333;
+      color: #FFFFFF;
       font-size: 2rem;
     }
   }
