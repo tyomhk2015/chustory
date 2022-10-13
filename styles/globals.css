@@ -1,6 +1,8 @@
 html,
 body {
-  background: linear-gradient(#E0E6F8, #122A9A 90%, #0F373D);
+  background-image: url(../public/bg.webp);
+  background-size: cover;
+  background-position: center;
   font-family: "Montserrat", "Noto Sans JP", sans-serif;
   font-size: 10px;
 }
