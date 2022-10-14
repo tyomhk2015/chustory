@@ -5,12 +5,12 @@ import styles from '../styles/Home.module.scss';
 import { useCharacter } from '../hook/useCharacter';
 import { MetaHead, CharacterList, Modal, FooterContent } from '../components';
 
-const Home: NextPage = ({data: characterData}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home: NextPage = ({data: characterData, gtag}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const characterHook = useCharacter(characterData);
 
   return (
     <div className={styles['wrapper']}>
-      <MetaHead />
+      <MetaHead gtag={gtag}/>
       <main>
         <h1 className={styles['main__title']}>Chunithm Character Story</h1>
         {characterHook.characters.length > 0 && (
@@ -65,8 +65,7 @@ export const getStaticProps: GetStaticProps = async () => {
         },
     }
   })));
-
-  return { props: { data : characters } }
+  return { props: { data : characters, gtag: process.env.GTAG_ID } }
 }
 
 export default Home;
