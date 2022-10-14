@@ -1,5 +1,8 @@
 html,
 body {
+  background-image: url(../public/bg.webp);
+  background-size: cover;
+  background-position: center;
   font-family: "Montserrat", "Noto Sans JP", sans-serif;
   font-size: 10px;
 }

@@ -9,6 +9,9 @@ const nextConfig = {
     locales: ["ko"],
     defaultLocale: "ko",
   },
+  experimental: {
+    largePageDataBytes: 12800000,
+  },
 }
 
 module.exports = nextConfig
