@@ -28,13 +28,10 @@ export const CharacterList: React.FC<ICharacterList> = (prop) => {
                 onClick={prop.selectCharacter}
                 data-key={character.id}
               >
-                <Image
+                <img
+                  className={styles['character-list__thumbnail']}
                   src={THUMBNAIL_PATH + character.id + IMG_TYPE}
                   alt={character.name}
-                  layout={'fill'}
-                  objectFit={'contain'}
-                  placeholder='blur'
-                  blurDataURL={placeholderImage.blurDataURL}
                 />
               </li>
             ))}
