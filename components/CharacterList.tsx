@@ -2,9 +2,9 @@ import Image from "next/image";
 import styles from '../styles/Home.module.scss';
 import { ICharacterList } from "../hook/useCharacter";
 import placeholderImage from '../public/placeholder.webp';
-import imageLoader from "../lib/imageLoader";
 
 const THUMBNAIL_URL = 'https://chunithm.sega.jp/storage/chara/chunithm-new/thumbnail/';
+const THUMBNAIL_PATH = '/thumbnail/';
 const IMG_TYPE = '.png';
 /**
  * A list of charaters, grouped by each versions.
@@ -29,7 +29,7 @@ export const CharacterList: React.FC<ICharacterList> = (prop) => {
                 data-key={character.id}
               >
                 <Image
-                  src={imageLoader({src: THUMBNAIL_URL + character.id + IMG_TYPE})}
+                  src={THUMBNAIL_PATH + character.id + IMG_TYPE}
                   alt={character.name}
                   layout={'fill'}
                   objectFit={'contain'}
