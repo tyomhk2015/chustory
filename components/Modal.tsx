@@ -35,11 +35,10 @@ export const Modal: React.FC<IModal> = (prop) => {
                 {character.name}
               </h2>
               <div className={styles['modal__content__image']}>
-                <Image
+                {/* eslint-disable @next/next/no-img-element */}
+                <img
                   src={ILLUSTRATION_PATH + character.id + IMG_TYPE}
                   alt={character.name}
-                  layout={'fill'}
-                  objectFit={'contain'}
                 />
               </div>
               {character.episodes.length > 0 && (

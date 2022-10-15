@@ -28,6 +28,7 @@ export const CharacterList: React.FC<ICharacterList> = (prop) => {
                 onClick={prop.selectCharacter}
                 data-key={character.id}
               >
+                {/* eslint-disable @next/next/no-img-element */}
                 <img
                   className={styles['character-list__thumbnail']}
                   src={THUMBNAIL_PATH + character.id + IMG_TYPE}
