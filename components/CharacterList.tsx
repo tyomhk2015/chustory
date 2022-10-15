@@ -32,8 +32,8 @@ export const CharacterList: React.FC<ICharacterList> = (prop) => {
                   alt={character.name}
                   layout={'fill'}
                   objectFit={'contain'}
-                  placeholder='blur'
-                  blurDataURL={placeholderImage.blurDataURL}
+                  // placeholder='blur'
+                  // blurDataURL={placeholderImage.blurDataURL}
                 />
               </li>
             ))}
