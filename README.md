@@ -2,6 +2,9 @@
 
 🎮 <a href="https://chunithm.sega.jp/" target="_blank" rel="noopener noreferrer">츄니즘</a>에 등장하는 캐릭터들의 스토리를 한국어/영어 볼 수 있는 웹사이트 입니다. 📖
 
+⚠️ChuStory is an unofficial CHUNITHM-fan-made site.<br>
+⚠️Copyright of all illustrations and contents, related to CHUNITHM, are owned and reserved by ©SEGA
+
 ## 구동 화면 ⚙️
 
 - PC 🖥️
