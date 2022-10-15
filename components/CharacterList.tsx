@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from '../styles/Home.module.scss';
 import { ICharacterList } from "../hook/useCharacter";
 import placeholderImage from '../public/placeholder.webp';
+import imageLoader from "../lib/imageLoader";
 
 const THUMBNAIL_URL = 'https://chunithm.sega.jp/storage/chara/chunithm-new/thumbnail/';
 const IMG_TYPE = '.png';
@@ -28,12 +29,12 @@ export const CharacterList: React.FC<ICharacterList> = (prop) => {
                 data-key={character.id}
               >
                 <Image
-                  src={THUMBNAIL_URL + character.id + IMG_TYPE}
+                  src={imageLoader({src: THUMBNAIL_URL + character.id + IMG_TYPE, width: 216})}
                   alt={character.name}
                   layout={'fill'}
                   objectFit={'contain'}
-                  // placeholder='blur'
-                  // blurDataURL={placeholderImage.blurDataURL}
+                  placeholder='blur'
+                  blurDataURL={placeholderImage.blurDataURL}
                 />
               </li>
             ))}

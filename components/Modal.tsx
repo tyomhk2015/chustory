@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import Image from "next/image";
 import { IModal } from "../hook/useCharacter";
+import imageLoader from "../lib/imageLoader";
 import styles from '../styles/Home.module.scss';
 import { EpisodeList } from "./EpisodeList";
 
@@ -34,7 +35,7 @@ export const Modal: React.FC<IModal> = (prop) => {
               </h2>
               <div className={styles['modal__content__image']}>
                 <Image
-                  src={ILLUSTRATION_URL + character.id + IMG_TYPE}
+                  src={imageLoader({src: ILLUSTRATION_URL + character.id + IMG_TYPE, width: 600})}
                   alt={character.name}
                   layout={'fill'}
                   objectFit={'contain'}
