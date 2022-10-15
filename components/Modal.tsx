@@ -5,7 +5,8 @@ import imageLoader from "../lib/imageLoader";
 import styles from '../styles/Home.module.scss';
 import { EpisodeList } from "./EpisodeList";
 
-const ILLUSTRATION_URL = 'https://chunithm.sega.jp/storage/chara/chunithm-new/illustration//';
+const ILLUSTRATION_URL = 'https://chunithm.sega.jp/storage/chara/chunithm-new/illustration/';
+const ILLUSTRATION_PATH = '/illustration/';
 const IMG_TYPE = '.png';
 
 /**
@@ -34,11 +35,10 @@ export const Modal: React.FC<IModal> = (prop) => {
                 {character.name}
               </h2>
               <div className={styles['modal__content__image']}>
-                <Image
-                  src={imageLoader({src: ILLUSTRATION_URL + character.id + IMG_TYPE, width: 600})}
+                {/* eslint-disable @next/next/no-img-element */}
+                <img
+                  src={ILLUSTRATION_PATH + character.id + IMG_TYPE}
                   alt={character.name}
-                  layout={'fill'}
-                  objectFit={'contain'}
                 />
               </div>
               {character.episodes.length > 0 && (
