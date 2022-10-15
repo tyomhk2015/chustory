@@ -1,13 +1,11 @@
 import classNames from "classnames";
-import Image from "next/image";
 import { IModal } from "../hook/useCharacter";
-import imageLoader from "../lib/imageLoader";
 import styles from '../styles/Home.module.scss';
 import { EpisodeList } from "./EpisodeList";
 
 const ILLUSTRATION_URL = 'https://chunithm.sega.jp/storage/chara/chunithm-new/illustration/';
 const ILLUSTRATION_PATH = '/illustration/';
-const IMG_TYPE = '.png';
+const IMG_TYPE = '.webp';
 
 /**
  * Modal for showing selected character's detail.

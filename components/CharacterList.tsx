@@ -1,11 +1,9 @@
-import Image from "next/image";
 import styles from '../styles/Home.module.scss';
 import { ICharacterList } from "../hook/useCharacter";
-import placeholderImage from '../public/placeholder.webp';
 
 const THUMBNAIL_URL = 'https://chunithm.sega.jp/storage/chara/chunithm-new/thumbnail/';
 const THUMBNAIL_PATH = '/thumbnail/';
-const IMG_TYPE = '.png';
+const IMG_TYPE = '.webp';
 /**
  * A list of charaters, grouped by each versions.
  */
