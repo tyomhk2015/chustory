@@ -29,7 +29,7 @@ Frontend 🖥️ | Next.js, SCSS
 Backend(API) ⚙️ | <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a>
 Middleware 🛠️ | <a href="https://www.prisma.io/" target="_blank" rel="noopener noreferrer">Prisma</a>
 Database 💾 | <a href="https://planetscale.com/" target="_blank" rel="noopener noreferrer">PlanetScale</a>
-Deploy 📦 | <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a>
+Deploy & CD/CI 📦 | <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a>
 
 ## 왜 이런 기술을 썼나요? ✨
 
@@ -57,7 +57,8 @@ Deploy 📦 | <a href="https://vercel.com/" target="_blank" rel="noopener norefe
 GA를 도입하려고 시도했는데, 가입부터 막히는 문제가 발생했습니다.
 어떻게 설정하든 'Interal error, 내부 오류' 등이라고 토스트가 뜨면서 가입자체가 안 되는 문제가 있었습니다.
 
-시도해본 것들
+시도해본 것들 💭
+
 - 다른 구글 계정으로 가입 시도
 - 각 구글 계정의 국가 설정과 GA 가입시 시간이나 통화(Currency) 설정을 맞추기
 - 유튜브에서 GA관련 입문 가이드 영상 참고
@@ -72,6 +73,7 @@ GA가입 문제는 다음에 다시 시도 해 볼 계획입니다.
 
 > 한국 IP에서만 엑박이 뜨는 현상 🔧
 
+(2022/10/15)
 한국 외의 IP에서는 사이트 내의 이미지들이 잘 표시되지만, 한국 IP 한정으로 엑박이 뜨는 문제가 있었습니다. 
 
 시도한 것들 💭
