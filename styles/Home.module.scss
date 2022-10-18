@@ -184,7 +184,11 @@ $transition-duration: 0.4s;
 
         &__content {
           font-size: 1.6rem;
-          margin-top: 2rem;;
+          margin-top: 2rem;
+
+          & > a {
+            color: #FFFFFF;
+          }
         }
 
         &--closed {
