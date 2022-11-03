@@ -47,12 +47,32 @@ const VERSIONS = ['', 'AIR', 'STAR', 'AMAZON', 'CRYSTAL', 'PARADISE', 'NEW'];
 
 /**
  * Make HTML and body tag scrollable/unscrollable.
- * @param doFix 
+ * @param doFix - A flag for fixing 'html' and 'body' tag.
  */
 const toogleRootDOMsFix = (doFix: boolean) => {
   const rootDOMs = document.querySelectorAll('html, body');
   rootDOMs.forEach((DOM) => doFix ? DOM.classList.add('fixed') : DOM.removeAttribute('class'));
 }
+
+  /**
+   * Fix the vertical position of the 'main' tag.
+   * @param mainRef - Captured DOM element, 'main' tag.
+   * @param fix - A flag for fixing the 'mainRef'.
+   * @param yPos - The vertical position in number.
+   */
+   const togglefixMainDOM = (mainRef: React.MutableRefObject<null>,fix: boolean, yPos: number) => {
+    if(!mainRef.current) return;
+    const mainDOM = mainRef.current as HTMLElement;
+    
+    if(fix) {
+      mainDOM.style.position = 'relative';
+      mainDOM.style.top = -yPos + 'px';
+    } else {
+      mainDOM.style.removeProperty('position');
+      mainDOM.style.removeProperty('top');
+      window.scrollTo(0, yPos);
+    }
+  }
 
 /**
  * Close or open the selected story box.
@@ -68,20 +88,23 @@ const toggleStoryBox = (e: React.MouseEvent<HTMLLIElement>) => {
   } else {
     target.classList.add(flag)
   }
-
 }
 
 /**
  * A custom hook for main page and characters data.
  */
-export const useCharacter = (characterData: ICharacter[]) => {
+export const useCharacter = (characterData: ICharacter[], mainRef: React.MutableRefObject<null>) => {
   const characters = characterData;
   const [selectedCharacter, setSelectedCharacter] = useState<string>();
+  const [scrollYPos, setScrollYPos] = useState(0);
 
   const selectCharacter = (e: React.MouseEvent<HTMLElement>) => {
     const characterID = e.currentTarget.getAttribute('data-key');
+    const currentScrollYPos = window.pageYOffset;
     characterID && setSelectedCharacter(characterID);
+    setScrollYPos(currentScrollYPos);
     toogleRootDOMsFix(true);
+    togglefixMainDOM(mainRef, true, currentScrollYPos);
   };
 
   const getCharacter = () : ICharacter | undefined => {
@@ -91,6 +114,7 @@ export const useCharacter = (characterData: ICharacter[]) => {
   const unselectCharacter = () => {
     setSelectedCharacter('');
     toogleRootDOMsFix(false);
+    togglefixMainDOM(mainRef, false, scrollYPos);
   }
 
   return {

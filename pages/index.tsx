@@ -1,17 +1,18 @@
 import prismaClient from '../lib/prismaClient';
 import type { GetStaticProps, NextPage, InferGetStaticPropsType } from 'next';
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from '../styles/Home.module.scss';
 import { useCharacter } from '../hook/useCharacter';
 import { MetaHead, CharacterList, Modal, FooterContent } from '../components';
 
 const Home: NextPage = ({data: characterData, gtag}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const characterHook = useCharacter(characterData);
+  const mainRef = useRef(null);
+  const characterHook = useCharacter(characterData, mainRef);
 
   return (
     <div className={styles['wrapper']}>
       <MetaHead gtag={gtag}/>
-      <main>
+      <main ref={mainRef}>
         <h1 className={styles['main__title']}>Chunithm Character Story</h1>
         {characterHook.characters.length > 0 && (
           <>
