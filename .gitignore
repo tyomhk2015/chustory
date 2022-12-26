@@ -39,3 +39,5 @@ next-env.d.ts
 pages/_add
 pages/_test
 
+# lock files
+package-lock.json
