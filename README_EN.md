@@ -108,9 +108,10 @@ As a workaround, I decided to serve all dynamic loading images as static files, 
 
 The following feature will be added in the near future.
 
-1. Rsgister all CHUNITHM characters that have stories.
-2. Filter and sort character according to themes.
-3. Leverage `<datalist>` tag for searching a specific character.
-4. Add a clip that is related to a character in the modal.
-5. Add story content in English.
-6. Add story content in Japanese.
+- Rsgister all CHUNITHM characters that have stories. (WIP)
+- Add independant comment feature for each characters. (Pending)
+- Filter and sort character according to themes. (Pending)
+- Leverage `<datalist>` tag for searching a specific character. (Pending)
+- Add a clip that is related to a character in the modal. (Pending)
+- Add story content in English. (Pending)
+- Add story content in Japanese. (Pending)
