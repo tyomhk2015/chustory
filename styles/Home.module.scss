@@ -34,7 +34,7 @@ $transition-duration: 0.4s;
   display: grid;
   gap: 2.8rem;
   grid-template-columns: repeat(4, 1fr);
-  
+  place-items: center;
   margin-top: 2rem;
 
   & > li {
