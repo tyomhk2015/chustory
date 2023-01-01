@@ -3,9 +3,9 @@
  * Link: https://docs.cypress.io/guides/references/best-practices#Selecting-Elements
  */
 
-const TESTING_ENV = 'http://localhost:3000/';
 
 describe('main_thumbnails', () => {
+  const TESTING_ENV = 'http://localhost:3000/';
   it('should have all thumbnails', () => {
     // Arrange
     cy.visit(TESTING_ENV);
@@ -18,6 +18,7 @@ describe('main_thumbnails', () => {
 });
 
 describe('main_illustrations', () => {
+  const TESTING_ENV = 'http://localhost:3000/';
   it('should have all illustrations', () => {
     // Arrange
     cy.visit(TESTING_ENV);
