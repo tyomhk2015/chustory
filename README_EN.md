@@ -104,6 +104,10 @@ After the image optimization is completed, there will be a new URL to be referre
 
 As a workaround, I decided to serve all dynamic loading images as static files, in public folder. This made the servive show all the necessary images, regardless of region IPs.
 
+> Error during deployment: '**.ts' cannot be compiled under '--isolatedModules'
+
+The solution: https://stackoverflow.com/questions/56577201/why-is-isolatedmodules-error-fixed-by-any-import
+
 ## What's next? ⌚
 
 The following feature will be added in the near future.

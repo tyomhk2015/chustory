@@ -88,6 +88,10 @@ URL로 참조하고 있던 이미지들을 서버에 저장하여 정적 파일�
 이유는 이미지 URL이 Next.js의 `<Image/>`태그처럼 바뀌지 않을 것이라고 예상되어서 입니다.
 그 결과 엑박이었던 이미지들이 한국 IP에서도 정상적으로 표시되게 되었습니다.
 
+> 배포 과정에서 발생한 에러: '**.ts' cannot be compiled under '--isolatedModules'
+
+적용한 해결책: https://stackoverflow.com/questions/56577201/why-is-isolatedmodules-error-fixed-by-any-import
+
 ## 앞으로의 계획 ⌚
 
 - 스토리를 가지고 있는 모든 캐릭터를 Chustory에 추가하기 (WIP)
