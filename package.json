@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "@prisma/client": "^4.8.0",
@@ -19,8 +20,10 @@
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
+    "cypress": "^12.2.0",
     "eslint": "8.23.1",
     "eslint-config-next": "^13.1.1",
+    "eslint-plugin-cypress": "^2.12.1",
     "prisma": "^4.4.0",
     "sass": "^1.54.9",
     "typescript": "4.8.3"

@@ -36,6 +36,7 @@ export const CharacterList: React.FC<ICharacterList> = (prop) => {
               >
                 {/* eslint-disable @next/next/no-img-element */}
                 <img
+                  data-cy-thumbnail='thumbnail'
                   className={styles['character-list__thumbnail']}
                   src={THUMBNAIL_PATH + character.id + IMG_TYPE}
                   alt={character.name}

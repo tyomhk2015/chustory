@@ -17,12 +17,14 @@ export const Modal: React.FC<IModal> = (prop) => {
     <>
       {character && (
         <div
+          data-cy-modal='modal' // Cypress Best Practices: https://docs.cypress.io/guides/references/best-practices#Selecting-Elements
           className={classNames(styles['modal'], {
             [styles['modal--active']]: prop.isActive,
           })}
         >
           <div className={styles['modal__content-wrapper']}>
             <div
+              data-cy-close-button='closeButton'
               className={styles['modal__close-button']}
               onClick={prop.unselectCharacter}
             >
@@ -35,6 +37,7 @@ export const Modal: React.FC<IModal> = (prop) => {
               <div className={styles['modal__content__image']}>
                 {/* eslint-disable @next/next/no-img-element */}
                 <img
+                  data-cy-illustration='illustration'
                   src={ILLUSTRATION_PATH + character.id + IMG_TYPE}
                   alt={character.name}
                 />
