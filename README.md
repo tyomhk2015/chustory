@@ -30,6 +30,7 @@ Backend(API) ⚙️ | <a href="https://nextjs.org/" target="_blank" rel="noopene
 Middleware 🛠️ | <a href="https://www.prisma.io/" target="_blank" rel="noopener noreferrer">Prisma</a>
 Database 💾 | <a href="https://planetscale.com/" target="_blank" rel="noopener noreferrer">PlanetScale</a>
 Deploy & CD/CI 📦 | <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a>
+E2E Test 🧪 | <a href="https://www.cypress.io/" target="_blank" rel="noopener noreferrer">Cypress</a>
 
 ## 왜 이런 기술을 썼나요? ✨
 
