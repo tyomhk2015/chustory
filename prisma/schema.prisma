@@ -23,6 +23,7 @@ model Character {
 model Episode {
   id          Int       @id @default(autoincrement())
   character   Character @relation(fields: [characterId], references: [id])
+  @@index([characterId])
   characterId String
   identifier  String    @unique
   title       String
