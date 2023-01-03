@@ -5,7 +5,7 @@
 
 const TESTING_ENV = 'http://localhost:3000/';
 
-describe('main_thumbnails', () => {
+describe('thumbnails', () => {
   it('should have all thumbnails', () => {
     // Arrange
     cy.visit(TESTING_ENV);
@@ -17,7 +17,7 @@ describe('main_thumbnails', () => {
   });
 });
 
-describe('main_illustrations', () => {
+describe('illustrations', () => {
   it('should have all illustrations', () => {
     // Arrange
     cy.visit(TESTING_ENV);
