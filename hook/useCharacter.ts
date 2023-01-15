@@ -43,7 +43,40 @@ export interface IEpisodeList {
 /**
  * A list of all Chunithm versions.
  */
-const VERSIONS = ['', 'AIR', 'STAR', 'AMAZON', 'CRYSTAL', 'PARADISE', 'NEW'];
+const VERSIONS = [
+  {
+    name: '',
+    number: 0
+  },
+  {
+    name: 'AIR',
+    number: 1
+  },
+  {
+    name: 'STAR',
+    number: 2
+  },
+  {
+    name: 'AMAZON',
+    number: 3
+  },
+  {
+    name: 'CRYSTAL',
+    number: 4
+  },
+  {
+    name: 'PARADISE',
+    number: 5
+  },
+  {
+    name: 'NEW',
+    number: 6
+  },
+  {
+    name: 'SUN',
+    number: 7
+  },
+].reverse();
 
 /**
  * Make HTML and body tag scrollable/unscrollable.
