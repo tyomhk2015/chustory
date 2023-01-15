@@ -18,10 +18,10 @@ const Home: NextPage = ({data: characterData, gtag}: InferGetStaticPropsType<typ
           <>
             {characterHook.VERSIONS.map((version, index) => (
               <CharacterList
-                key={version}
+                key={index}
                 characters={characterHook.characters}
-                version={index}
-                versionName={version}
+                version={version.number}
+                versionName={version.name}
                 selectCharacter={characterHook.selectCharacter}
               />
             ))}
@@ -53,17 +53,17 @@ export const getStaticProps: GetStaticProps = async () => {
       id: true,
       name: true,
       version: true,
-        episodes: {
-          select: {
-            characterId: true,
-            title: true,
-            subtitle: true,
-            story: true
-          },
-          orderBy: {
-            order: 'asc',
-          }
+      episodes: {
+        select: {
+          characterId: true,
+          title: true,
+          subtitle: true,
+          story: true
         },
+        orderBy: {
+          order: 'asc',
+        }
+      },
     }
   })));
   return { props: { data : characters, gtag: process.env.GTAG_ID } }
