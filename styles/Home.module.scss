@@ -1,4 +1,4 @@
-$highlight-color: #FFE832;
+$highlight-color: #F8BE6B;
 $transition-duration: 0.4s;
 
 .wrapper {
@@ -15,18 +15,6 @@ $transition-duration: 0.4s;
     color: #FFFFFF;
     font-size: 4.8rem;
     position: relative;
-
-    // &::after {
-    //   aspect-ratio:  1 / 1;
-    //   content: '';
-    //   background-image: url('../public/mascot.png');
-    //   background-position: center center;
-    //   background-size: contain;
-    //   position: absolute;
-    //   transform: translateY(50%);
-    //   top: -50%;
-    //   width: 6.4rem;
-    // }
   }
 }
 
@@ -39,15 +27,11 @@ $transition-duration: 0.4s;
 
   & > li {
     aspect-ratio: 1/1;
-    background-color: #141560;
     border-radius: 0.8rem;
-    border: 2px solid #FFFFFF;
-    box-shadow: 0 0.4rem 1rem 0 #444444;
     max-width: 21.6rem;
     overflow: hidden;
     position: relative;
     transition: $transition-duration;
-    
 
     // Thumbnail
     & > span {
@@ -59,6 +43,12 @@ $transition-duration: 0.4s;
       background-color: $highlight-color;
       transform: scale(1.1);
     }
+
+    & > img {
+      border-radius: 0.8rem;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0.4rem 1rem 0 #444444;
+    }
   }
 
   &-wrapper {
@@ -66,7 +56,7 @@ $transition-duration: 0.4s;
   }
 
   &__version {
-    color: #FFFFFF;
+    color: #111111;
     font-size: 3.2rem;
   }
 

@@ -10,7 +10,7 @@
     "cy:open": "cypress open"
   },
   "dependencies": {
-    "@prisma/client": "^4.8.0",
+    "@prisma/client": "^4.16.1",
     "classnames": "^2.3.2",
     "next": "^13.1.1",
     "react": "^18.2.0",
