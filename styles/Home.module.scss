@@ -56,7 +56,7 @@ $transition-duration: 0.4s;
   }
 
   &__version {
-    color: #111111;
+    color: #FFFFFF;
     font-size: 3.2rem;
   }
 
@@ -274,6 +274,19 @@ $transition-duration: 0.4s;
   right: 0;
   top: 0;
   z-index: 1;
+
+  &-mountain {
+    background-image: url(../public/bg_mountain.webp);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
 }
 
 @media only screen and (max-width: 768px) {
