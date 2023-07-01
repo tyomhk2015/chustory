@@ -29,7 +29,7 @@ export const MetaHead: React.FC<{gtag: string}> = ({gtag}) => {
           content='츄니즘, Chunithm, チュウニズム, チューニズム, SEGA, セガ, 리듬게임, Rhythm Game, 音ゲー, BMS,'
         />
         <meta name='rating' content='general' />
-        <meta name='theme-color' content='#7688d5' />
+        <meta name='theme-color' content='#040E26' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Script
