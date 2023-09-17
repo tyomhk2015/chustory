@@ -45,38 +45,38 @@ export interface IEpisodeList {
  */
 const VERSIONS = [
   {
-    name: '',
-    number: 0
-  },
-  {
-    name: 'AIR',
-    number: 1
-  },
-  {
-    name: 'STAR',
-    number: 2
-  },
-  {
-    name: 'AMAZON',
-    number: 3
-  },
-  {
-    name: 'CRYSTAL',
-    number: 4
-  },
-  {
-    name: 'PARADISE',
-    number: 5
+    name: 'SUN',
+    number: 7
   },
   {
     name: 'NEW',
     number: 6
   },
   {
-    name: 'SUN',
-    number: 7
+    name: 'PARADISE',
+    number: 5
   },
-].reverse();
+  {
+    name: 'CRYSTAL',
+    number: 4
+  },
+  {
+    name: 'AMAZON',
+    number: 3
+  },
+  {
+    name: 'STAR',
+    number: 2
+  },
+  {
+    name: 'AIR',
+    number: 1
+  },
+  {
+    name: '',
+    number: 0
+  },
+];
 
 /**
  * Make HTML and body tag scrollable/unscrollable.
