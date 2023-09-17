@@ -1,6 +1,6 @@
 import prismaClient from '../lib/prismaClient';
 import type { GetStaticProps, NextPage, InferGetStaticPropsType } from 'next';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from '../styles/Home.module.scss';
 import { useCharacter } from '../hook/useCharacter';
 import { MetaHead, CharacterList, Modal, FooterContent } from '../components';
@@ -8,6 +8,16 @@ import { MetaHead, CharacterList, Modal, FooterContent } from '../components';
 const Home: NextPage = ({data: characterData, gtag}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const mainRef = useRef(null);
   const characterHook = useCharacter(characterData, mainRef);
+
+  /**
+   * Clean up the data after hydration.
+   */
+  useEffect(()=>{
+    setTimeout(()=> {
+      const nextData = document.querySelector('#__NEXT_DATA__');
+      nextData?.remove();
+    })
+  }, []);
 
   return (
     <div className={styles['wrapper']}>
@@ -45,8 +55,10 @@ const Home: NextPage = ({data: characterData, gtag}: InferGetStaticPropsType<typ
   );
 };
 
-// This gets called on every request
-// Return all characters with their own episodes.
+/**
+ * Called once at build time.
+ * @returns All characters with their own episodes, gtag ID
+ */
 export const getStaticProps: GetStaticProps = async () => {
   const characters = JSON.parse(JSON.stringify(await prismaClient.character.findMany({
     select: {
