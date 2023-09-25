@@ -36,8 +36,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-pages/_add
-pages/_test
 
 # lock files
 package-lock.json
+yarn.lock
+
+# dump
+# pscale database dump [database] [branch]
+/pscale_dump**
+
+# test pages
+app/_add
+app/_test
