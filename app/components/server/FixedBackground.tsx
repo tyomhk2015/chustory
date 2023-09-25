@@ -1,13 +1,11 @@
-import styles from '../styles/Home.module.scss';
+import { FC } from 'react';
+import styles from '../../../styles/Home.module.scss';
 
-/**
- * 'FixedBackground' content
- */
- export const FixedBackground: React.FC = () => {
+export const FixedBackground: FC = async () => {
   return (
     <>
       <div className={styles['fixed-background']} />
       <div className={styles['fixed-background-mountain']} />
     </>
-  )
- }
+  );
+};

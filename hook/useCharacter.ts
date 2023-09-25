@@ -14,17 +14,17 @@ export interface ICharacterAdd {
 }
 
 export interface IEpisode {
+  characterId: string;
   title: string;
   subtitle: string;
   story: string;
-  order: number;
 }
 
 export interface ICharacterList {
   characters: ICharacter[];
   version: number;
   versionName: string;
-  selectCharacter: (e: React.MouseEvent<HTMLElement>) => void;
+  // selectCharacter: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export interface IModal {
@@ -37,7 +37,6 @@ export interface IModal {
 
 export interface IEpisodeList {
   episodes: IEpisode[];
-  toggleStoryBox: (e: React.MouseEvent<HTMLLIElement>) => void;
 }
 
 /**
