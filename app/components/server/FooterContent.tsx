@@ -28,9 +28,10 @@ export const FooterContent: FC = async () => {
       </p>
       <small className={styles['footer__copyright']}>2022 &copy;ChuStory</small>
       <small className={styles['footer__hit']}>
-        {/* <a href="https://hits.seeyoufarm.com">
+        <a href="https://hits.seeyoufarm.com">
+          {/* eslint-disable @next/next/no-img-element */}
           <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fwww.chustory.net" alt='Chustory hit'/>
-        </a> */}
+        </a>
       </small>
       <small className={styles['footer__contact']}>
         chustory2022@gmail.com
