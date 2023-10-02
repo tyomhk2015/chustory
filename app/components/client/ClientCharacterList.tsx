@@ -75,10 +75,10 @@ const ClientCharacterList: FC<PropsWithChildren<ClientCharacterListProps>> = ({
     setSelectedCharacter(retrievedCharacter);
   }, []);
 
-  const unFixWrapper = useCallback(() => {
+  const unFixWrapper = () => {
     toogleRootDOMFix(false);
     toogleWrapperFix(false, scrollYPos);
-  }, []);
+  };
 
   const onMouseEnter = useCallback((event: MouseEvent | TouchEvent) => {
     const targetElement = event.target as HTMLDivElement;

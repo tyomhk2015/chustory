@@ -38,11 +38,13 @@ export const Modal: FC<ClientModalProps> = ({
         <section className={styles['modal__content']}>
           <h2 className={styles['modal__content__title']}>{selectedCharacter.name}</h2>
           <div className={styles['modal__content__image']}>
+            {/* The following takes much lesser time than next/image */}
             {/* eslint-disable @next/next/no-img-element */}
             <img
               data-cy-illustration='illustration'
               src={ILLUSTRATION_PATH + selectedCharacter.id + IMG_TYPE}
               alt={selectedCharacter.name}
+              loading='eager'
             />
           </div>
           {selectedCharacter.episodes.length > 0 && (
