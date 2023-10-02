@@ -10,14 +10,14 @@ import CharacterThumbnail from './CharacterThumbnail';
 export const CharacterList: FC<ICharacterListProp> = async ({ characters }) => {
   return (
     <>
-      {VERSIONS.map((version, index) => {
+      {VERSIONS.map((version, versionIndex) => {
         const filteredCharacters = characters.filter(
           (character) => character.version === version.number
         );
 
         return (
           <section
-            key={`version${index}`}
+            key={`version${versionIndex}`}
             className={styles['character-list-wrapper']}
           >
             <h2 className={styles['character-list__version']}>
@@ -26,7 +26,7 @@ export const CharacterList: FC<ICharacterListProp> = async ({ characters }) => {
             <ul className={styles['character-list']}>
               {filteredCharacters.map((character, index) => (
                 <li key={index}>
-                  <CharacterThumbnail character={character} src={THUMBNAIL_PATH + character.id + IMG_TYPE} loading={index === 0 ? 'eager' : 'lazy'}/>
+                  <CharacterThumbnail character={character} src={THUMBNAIL_PATH + character.id + IMG_TYPE} loading={versionIndex === 0 ? 'eager' : 'lazy'}/>
                 </li>
               ))}
             </ul>
