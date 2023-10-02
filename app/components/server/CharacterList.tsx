@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from '../../../styles/Home.module.scss';
 import { ICharacterListProp } from '../../types';
 import { IMG_TYPE, THUMBNAIL_PATH } from '../../constants';
-import CharacterThumbnail from './CharacterThumbnail';
+import CharacterThumbnail from '../client/CharacterThumbnail';
 
 /**
  * A list of charaters, grouped by each versions.
