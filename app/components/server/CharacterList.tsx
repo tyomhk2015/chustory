@@ -2,11 +2,12 @@ import { FC } from 'react';
 import styles from '../../../styles/Home.module.scss';
 import { CharacterListProp } from '../../types';
 import { IMG_TYPE, THUMBNAIL_PATH } from '../../constants';
+import Image from 'next/image';
 
 /**
  * A list of charaters, grouped by each versions.
  */
-export const CharacterList: FC<CharacterListProp> = async ({characters}) => {
+export const CharacterList: FC<CharacterListProp> = async ({ characters }) => {
   return (
     <>
       {VERSIONS.map((version, index) => {
@@ -24,16 +25,17 @@ export const CharacterList: FC<CharacterListProp> = async ({characters}) => {
             </h2>
             <ul className={styles['character-list']}>
               {filteredCharacters.map((character, index) => (
-                <li
-                  key={index}
-                >
-                  {/* eslint-disable @next/next/no-img-element */}
-                  <img
+                <li key={index} className={styles['character-list__item']}>
+                  <Image
                     data-cy-thumbnail='thumbnail'
                     data-key={character.id}
                     className={styles['character-list__thumbnail']}
                     src={THUMBNAIL_PATH + character.id + IMG_TYPE}
+                    sizes='(max-width: 768px) 100%, (max-width: 1200px) 100%'
                     alt={character.name}
+                    fill={true}
+                    priority={index === 0 ? true : false}
+                    loading={index > 0 ? 'lazy' : undefined}
                   />
                 </li>
               ))}
