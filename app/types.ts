@@ -40,20 +40,26 @@ export interface IEpisodeList {
   toggleStoryBox: (e: React.MouseEvent<HTMLLIElement>) => void;
 }
 
-export interface EventsForServer {
+export interface IEventsForServer {
   onClick: () => void;
 }
 
-export interface CharacterListProp {
+export interface ICharacterListProp {
   characters: ICharacter[];
 }
 
-export interface ClientCharacterListProps {
+export interface IClientCharacterListProps {
   characters: ICharacter[];
 }
 
-export interface ClientModalProps {
+export interface IClientModalProps {
   selectedCharacter: ICharacter;
   setSelectedCharacter: Dispatch<SetStateAction<ICharacter | undefined>>;
-  unFixWrapper: () => void
+  unFixWrapper: () => void;
+}
+
+export interface ICharacterThumbnailProps {
+  character: ICharacter;
+  src: string;
+  loading: 'eager' | 'lazy';
 }
