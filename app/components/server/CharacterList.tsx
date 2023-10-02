@@ -26,16 +26,15 @@ export const CharacterList: FC<CharacterListProp> = async ({ characters }) => {
             <ul className={styles['character-list']}>
               {filteredCharacters.map((character, index) => (
                 <li key={index} className={styles['character-list__item']}>
-                  <Image
+                  {/* The following takes much lesser time than next/image */}
+                  {/* eslint-disable @next/next/no-img-element */}
+                  <img
+                    alt={character.name}
+                    className={styles['character-list__thumbnail']}
                     data-cy-thumbnail='thumbnail'
                     data-key={character.id}
-                    className={styles['character-list__thumbnail']}
+                    loading={index === 0 ? 'eager' : 'lazy'}
                     src={THUMBNAIL_PATH + character.id + IMG_TYPE}
-                    sizes='(max-width: 768px) 100%, (max-width: 1200px) 100%'
-                    alt={character.name}
-                    fill={true}
-                    priority={index === 0 ? true : false}
-                    loading={index > 0 ? 'lazy' : undefined}
                   />
                 </li>
               ))}
