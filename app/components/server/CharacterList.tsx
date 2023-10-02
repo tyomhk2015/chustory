@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import styles from '../../../styles/Home.module.scss';
-import { CharacterListProp } from '../../types';
+import { ICharacterListProp } from '../../types';
 import { IMG_TYPE, THUMBNAIL_PATH } from '../../constants';
-import Image from 'next/image';
+import CharacterThumbnail from './CharacterThumbnail';
 
 /**
  * A list of charaters, grouped by each versions.
  */
-export const CharacterList: FC<CharacterListProp> = async ({ characters }) => {
+export const CharacterList: FC<ICharacterListProp> = async ({ characters }) => {
   return (
     <>
       {VERSIONS.map((version, index) => {
@@ -25,17 +25,8 @@ export const CharacterList: FC<CharacterListProp> = async ({ characters }) => {
             </h2>
             <ul className={styles['character-list']}>
               {filteredCharacters.map((character, index) => (
-                <li key={index} className={styles['character-list__item']}>
-                  {/* The following takes much lesser time than next/image */}
-                  {/* eslint-disable @next/next/no-img-element */}
-                  <img
-                    alt={character.name}
-                    className={styles['character-list__thumbnail']}
-                    data-cy-thumbnail='thumbnail'
-                    data-key={character.id}
-                    loading={index === 0 ? 'eager' : 'lazy'}
-                    src={THUMBNAIL_PATH + character.id + IMG_TYPE}
-                  />
+                <li key={index}>
+                  <CharacterThumbnail character={character} src={THUMBNAIL_PATH + character.id + IMG_TYPE} loading={index > 0 ? 'lazy' : undefined}/>
                 </li>
               ))}
             </ul>
