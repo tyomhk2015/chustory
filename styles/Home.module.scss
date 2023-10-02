@@ -39,6 +39,19 @@ $transition-duration: 0.4s;
       pointer-events: none;
     }
 
+    & > p {
+      background-color: #000000aa;
+      bottom: 0;
+      color: #ffffff;
+      font-size: 2rem;
+      overflow-x: hidden;
+      padding: 0.4rem 1rem;
+      position: absolute;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+    }
+
     &:hover {
       cursor: pointer;
       background-color: $highlight-color;
