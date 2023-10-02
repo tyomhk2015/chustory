@@ -26,7 +26,7 @@ export const CharacterList: FC<ICharacterListProp> = async ({ characters }) => {
             <ul className={styles['character-list']}>
               {filteredCharacters.map((character, index) => (
                 <li key={index}>
-                  <CharacterThumbnail character={character} src={THUMBNAIL_PATH + character.id + IMG_TYPE} loading={index > 0 ? 'lazy' : undefined}/>
+                  <CharacterThumbnail character={character} src={THUMBNAIL_PATH + character.id + IMG_TYPE} loading={index === 0 ? 'eager' : 'lazy'}/>
                 </li>
               ))}
             </ul>

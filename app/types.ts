@@ -61,5 +61,5 @@ export interface IClientModalProps {
 export interface ICharacterThumbnailProps {
   character: ICharacter;
   src: string;
-  loading: 'lazy' | undefined;
+  loading: 'eager' | 'lazy';
 }
