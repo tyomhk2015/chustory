@@ -47,16 +47,16 @@ const ClientCharacterList: FC<PropsWithChildren<ClientCharacterListProps>> = ({
 
   const preloadedImages = useMemo(() => new Set(), []);
 
-  const preloadImage = (imageLocation: string) => {
+  const preloadImage = useCallback((imageLocation: string) => {
     if (preloadedImages.has(imageLocation)) return;
     const image = new Image();
     image.src = imageLocation;
     image.onload = () => {
       preloadedImages.add(imageLocation);
     };
-  };
+  }, []);
 
-  const onClick = (event: MouseEvent) => {
+  const onClick = useCallback((event: MouseEvent) => {
     const targetElement = event.target as HTMLDivElement;
     if (!(targetElement.tagName === 'IMG')) return;
 
@@ -73,19 +73,19 @@ const ClientCharacterList: FC<PropsWithChildren<ClientCharacterListProps>> = ({
     setScrollYPos(currentScrollYPos);
     toogleWrapperFix(true, currentScrollYPos);
     setSelectedCharacter(retrievedCharacter);
-  };
+  }, []);
 
-  const unFixWrapper = () => {
+  const unFixWrapper = useCallback(() => {
     toogleRootDOMFix(false);
     toogleWrapperFix(false, scrollYPos);
-  };
+  }, []);
 
-  const onMouseEnter = (event: MouseEvent | TouchEvent) => {
+  const onMouseEnter = useCallback((event: MouseEvent | TouchEvent) => {
     const targetElement = event.target as HTMLDivElement;
     if (!(targetElement.tagName === 'IMG')) return;
     const id = targetElement.getAttribute('data-key');
     id && preloadImage(ILLUSTRATION_PATH + id + IMG_TYPE);
-  };
+  }, []);
 
   return (
     <div
