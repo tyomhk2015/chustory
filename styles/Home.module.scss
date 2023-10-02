@@ -32,6 +32,7 @@ $transition-duration: 0.4s;
     overflow: hidden;
     position: relative;
     transition: $transition-duration;
+    width: 100%;
 
     // Thumbnail
     & > span {
@@ -299,10 +300,6 @@ $transition-duration: 0.4s;
     &__title {
       color: #FFFFFF;
       font-size: 2.8rem;
-
-      // &::after {
-      //   width: 3.7rem;
-      // }
     }
   }
 
