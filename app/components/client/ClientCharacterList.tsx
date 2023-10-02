@@ -11,10 +11,10 @@ import React, {
   useState,
 } from 'react';
 import { Modal } from './Modal';
-import { ClientCharacterListProps, ICharacter } from '../../types';
+import { IClientCharacterListProps, ICharacter } from '../../types';
 import { ILLUSTRATION_PATH, IMG_TYPE } from '../../constants';
 
-const ClientCharacterList: FC<PropsWithChildren<ClientCharacterListProps>> = ({
+const ClientCharacterList: FC<PropsWithChildren<IClientCharacterListProps>> = ({
   characters,
   children,
 }) => {

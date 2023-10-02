@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import styles from '../../../styles/Home.module.scss';
-import { ClientModalProps } from '../../types';
+import { IClientModalProps } from '../../types';
 import { ILLUSTRATION_PATH, IMG_TYPE } from '../../constants';
 import { EpisodeList } from './EpisodeList';
 import { FC } from 'react';
@@ -10,7 +10,7 @@ import { FC } from 'react';
 /**
  * Modal for showing selected character's detail.
  */
-export const Modal: FC<ClientModalProps> = ({
+export const Modal: FC<IClientModalProps> = ({
   selectedCharacter,
   setSelectedCharacter,
   unFixWrapper
