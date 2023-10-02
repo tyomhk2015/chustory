@@ -28,6 +28,9 @@ $transition-duration: 0.4s;
   & > li {
     aspect-ratio: 1/1;
     border-radius: 0.8rem;
+    border-radius: 0.8rem;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 0.4rem 1rem 0 #444444;
     max-width: 21.6rem;
     overflow: hidden;
     position: relative;
@@ -56,12 +59,6 @@ $transition-duration: 0.4s;
       cursor: pointer;
       background-color: $highlight-color;
       transform: scale(1.1);
-    }
-
-    & > img {
-      border-radius: 0.8rem;
-      border: 2px solid #FFFFFF;
-      box-shadow: 0 0.4rem 1rem 0 #444444;
     }
   }
 
@@ -319,6 +316,12 @@ $transition-duration: 0.4s;
   .character-list {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.2rem;
+
+    & > li {
+      & > p {
+        font-size: 1rem;
+      }
+    }
 
     &-wrapper {
       margin-top: 2.8rem;
