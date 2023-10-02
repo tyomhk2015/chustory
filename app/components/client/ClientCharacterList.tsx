@@ -4,15 +4,12 @@ import React, {
   FC,
   MouseEvent,
   PropsWithChildren,
-  TouchEvent,
   useCallback,
-  useMemo,
   useRef,
   useState,
 } from 'react';
 import { Modal } from './Modal';
 import { IClientCharacterListProps, ICharacter } from '../../types';
-import { ILLUSTRATION_PATH, IMG_TYPE } from '../../constants';
 
 const ClientCharacterList: FC<PropsWithChildren<IClientCharacterListProps>> = ({
   characters,
@@ -45,17 +42,6 @@ const ClientCharacterList: FC<PropsWithChildren<IClientCharacterListProps>> = ({
     }
   }, []);
 
-  const preloadedImages = useMemo(() => new Set(), []);
-
-  const preloadImage = useCallback((imageLocation: string) => {
-    if (preloadedImages.has(imageLocation)) return;
-    const image = new Image();
-    image.src = imageLocation;
-    image.onload = () => {
-      preloadedImages.add(imageLocation);
-    };
-  }, []);
-
   const onClick = useCallback((event: MouseEvent) => {
     const targetElement = event.target as HTMLDivElement;
     if (!(targetElement.tagName === 'IMG')) return;
@@ -68,7 +54,6 @@ const ClientCharacterList: FC<PropsWithChildren<IClientCharacterListProps>> = ({
     if (!retrievedCharacter) return;
 
     const currentScrollYPos = window.pageYOffset;
-    id && preloadImage(ILLUSTRATION_PATH + id + IMG_TYPE);
     toogleRootDOMFix(true);
     setScrollYPos(currentScrollYPos);
     toogleWrapperFix(true, currentScrollYPos);
@@ -80,21 +65,13 @@ const ClientCharacterList: FC<PropsWithChildren<IClientCharacterListProps>> = ({
     toogleWrapperFix(false, scrollYPos);
   };
 
-  const onMouseEnter = useCallback((event: MouseEvent | TouchEvent) => {
-    const targetElement = event.target as HTMLDivElement;
-    if (!(targetElement.tagName === 'IMG')) return;
-    const id = targetElement.getAttribute('data-key');
-    id && preloadImage(ILLUSTRATION_PATH + id + IMG_TYPE);
-  }, []);
-
   return (
-    <div
-      ref={fixationRef}
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onTouchStart={onMouseEnter}
-    >
-      {children}
+    <div ref={fixationRef}>
+      <div
+        onClick={onClick}
+      >
+        {children}
+      </div>
       {selectedCharacter && (
         <Modal
           selectedCharacter={selectedCharacter}
