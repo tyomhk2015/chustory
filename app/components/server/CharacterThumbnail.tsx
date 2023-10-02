@@ -18,6 +18,9 @@ const CharacterThumbnail: FC<ICharacterThumbnailProps> = ({
         alt={character.name}
         loading={loading}
       />
+      <p>
+        {character.name}
+      </p>
     </>
   );
 };
