@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { Modal } from './Modal';
+import Modal from './Modal';
 import { IClientCharacterListProps, ICharacter } from '../../types';
 
 const ClientCharacterList: FC<PropsWithChildren<IClientCharacterListProps>> = ({
