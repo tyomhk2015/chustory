@@ -10,7 +10,7 @@ import { FC } from 'react';
 /**
  * Modal for showing selected character's detail.
  */
-export const Modal: FC<IClientModalProps> = ({
+const Modal: FC<IClientModalProps> = ({
   selectedCharacter,
   setSelectedCharacter,
   unFixWrapper
@@ -55,3 +55,5 @@ export const Modal: FC<IClientModalProps> = ({
     </div>
   );
 };
+
+export default Modal;
