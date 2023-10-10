@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
 import '../styles/globals.css'
 import { FixedBackground } from './components/server/FixedBackground';
 
@@ -32,23 +33,11 @@ export default function RootLayout({
         <meta name='rating' content='general' />
         <meta name='theme-color' content='#040E26' />
         <link rel='icon' href='/favicon.ico' />
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTAG_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', '${process.env.GTAG_ID}');
-          `}
-        </Script>
       </head>
       <body suppressHydrationWarning={true}>
         {children}
         <FixedBackground />
+        <Analytics />
       </body>
     </html>
   )
