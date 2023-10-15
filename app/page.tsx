@@ -12,6 +12,7 @@ const Home = async () => {
       id: true,
       name: true,
       version: true,
+      illustrator: true,
       episodes: {
         select: {
           characterId: true,
