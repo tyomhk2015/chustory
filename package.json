@@ -10,7 +10,7 @@
     "cy:open": "cypress open"
   },
   "dependencies": {
-    "@prisma/client": "^5.3.1",
+    "@prisma/client": "^5.4.2",
     "@vercel/analytics": "^1.1.0",
     "classnames": "^2.3.2",
     "next": "^13.5.2",
@@ -25,7 +25,7 @@
     "eslint": "8.23.1",
     "eslint-config-next": "^13.5.2",
     "eslint-plugin-cypress": "^2.12.1",
-    "prisma": "^4.4.0",
+    "prisma": "^5.4.2",
     "sass": "^1.54.9",
     "typescript": "5.2.2"
   }
