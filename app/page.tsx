@@ -2,7 +2,6 @@ import prismaClient from './lib/prismaClient';
 import styles from '../styles/Home.module.scss';
 import { ICharacter } from './types';
 import ClientCharacterList from './components/client/ClientCharacterList';
-import { CharacterList } from './components/server/CharacterList';
 import { FooterContent } from './components/server/FooterContent';
 
 export const dynamic = 'error';
@@ -31,9 +30,7 @@ const Home = async () => {
     <div className={styles['wrapper']}>
       <main>
         <h1 className={styles['main__title']}>Chunithm Character Story</h1>
-        <ClientCharacterList characters={characters}>
-          <CharacterList characters={characters} />
-        </ClientCharacterList>
+        <ClientCharacterList characters={characters} />
       </main>
 
       <footer className={styles['footer']}>

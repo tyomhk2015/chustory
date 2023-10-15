@@ -1,4 +1,4 @@
-$highlight-color: #F8BE6B;
+$highlight-color: #f8be6b;
 $transition-duration: 0.4s;
 
 .wrapper {
@@ -12,9 +12,52 @@ $transition-duration: 0.4s;
 
 .main {
   &__title {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 4.8rem;
     position: relative;
+  }
+}
+
+.version {
+  &-tab {
+    align-items: center;
+    align-self: normal;
+    background-color: #122a9a;
+    border-radius: 0.8rem;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0.5rem 1rem 0 #7688d5;
+    color: #ffffff;
+    display: flex;
+    font-size: 2.4rem;
+    justify-content: center;
+    max-width: 21.6rem;
+    overflow: hidden;
+    padding: 1rem 0;
+    text-align: center;
+    transition: $transition-duration;
+    width: 100%;
+
+    &:hover {
+      background-color: $highlight-color;
+      color: #333333;
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+
+    &-list {
+      display: grid;
+      grid-gap: 2.8rem;
+      gap: 2.8rem;
+      grid-template-columns: repeat(4, 1fr);
+      place-items: center;
+      margin-top: 2rem;
+    }
+
+    &--active {
+      background-color: $highlight-color;
+      color: #333333;
+      font-weight: 700;
+    }
   }
 }
 
@@ -28,9 +71,8 @@ $transition-duration: 0.4s;
   & > li {
     aspect-ratio: 1/1;
     border-radius: 0.8rem;
-    border-radius: 0.8rem;
-    border: 2px solid #FFFFFF;
-    box-shadow: 0 0.4rem 1rem 0 #444444;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0.4rem 1rem 0 #7688d5;
     max-width: 21.6rem;
     overflow: hidden;
     position: relative;
@@ -67,12 +109,18 @@ $transition-duration: 0.4s;
   }
 
   &__version {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 3.2rem;
   }
 
   &__thumbnail {
     width: 100%;
+    opacity: 1;
+    transition: opacity $transition-duration;
+
+    &--hidden {
+      opacity: 0;
+    }
   }
 }
 
@@ -99,7 +147,7 @@ $transition-duration: 0.4s;
 
 .modal {
   display: none;
-  background-color: #000000EE;
+  background-color: #000000ee;
   bottom: 0;
   left: 0;
   position: fixed;
@@ -118,24 +166,30 @@ $transition-duration: 0.4s;
     }
 
     &__image {
-      position: relative;
-      margin: 4rem auto 0;
-      aspect-ratio: 900 / 1136;
-      max-width: 60rem;
-      transition: $transition-duration ease-in-out;
-      user-select: none;
+      opacity: 1;
+      transition: opacity $transition-duration;
+      width: 100%;
+
+      &--hidden {
+        opacity: 0;
+      }
+
+      &-wrapper {
+        position: relative;
+        margin: 4rem auto 0;
+        aspect-ratio: 900 / 1136;
+        max-width: 60rem;
+        transition: $transition-duration ease-in-out;
+        user-select: none;
+      }
 
       &:hover {
         transform: scale(1.1);
       }
-
-      & > img {
-        width: 100%;
-      }
     }
 
     &__title {
-      color: #FFFFFF;
+      color: #ffffff;
       font-size: 5.2rem;
       margin-top: 7.4rem;
       text-align: center;
@@ -151,9 +205,9 @@ $transition-duration: 0.4s;
       &__story {
         background-color: #141414;
         box-shadow: 0 0.2rem 0.4rem 0.2rem #000000;
-        border: 2px solid #AAAAAA;
+        border: 2px solid #aaaaaa;
         border-radius: 8px;
-        color: #FFFFFF;
+        color: #ffffff;
         cursor: pointer;
         flex-shrink: 0;
         max-width: 40vw;
@@ -189,12 +243,12 @@ $transition-duration: 0.4s;
           margin-top: 2rem;
 
           & > a {
-            color: #FFFFFF;
+            color: #ffffff;
           }
         }
 
         &--closed {
-          border: 1px solid #8A8A8A;
+          border: 1px solid #8a8a8a;
           height: 16rem;
           overflow: hidden;
 
@@ -221,7 +275,7 @@ $transition-duration: 0.4s;
         &::-webkit-scrollbar-track {
           border-radius: 0.8rem;
         }
-        
+
         &::-webkit-scrollbar-thumb {
           border-radius: 0.4rem;
         }
@@ -230,7 +284,7 @@ $transition-duration: 0.4s;
   }
 
   &__close-button {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 4rem;
     overflow: hidden;
     position: fixed;
@@ -252,7 +306,7 @@ $transition-duration: 0.4s;
 
     &::after,
     &::before {
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       content: '';
       display: block;
       height: 0.2rem;
@@ -263,7 +317,7 @@ $transition-duration: 0.4s;
     }
 
     &::before {
-      transform: rotate(45deg)
+      transform: rotate(45deg);
     }
 
     &::after {
@@ -308,8 +362,19 @@ $transition-duration: 0.4s;
 
   .main {
     &__title {
-      color: #FFFFFF;
+      color: #ffffff;
       font-size: 2.8rem;
+    }
+  }
+
+  .version {
+    &-tab {
+      font-size: 1.2rem;
+
+      &-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+      }
     }
   }
 
@@ -328,7 +393,7 @@ $transition-duration: 0.4s;
     }
 
     &__version {
-      color: #FFFFFF;
+      color: #ffffff;
       font-size: 2rem;
     }
   }
@@ -351,15 +416,15 @@ $transition-duration: 0.4s;
           &__number {
             font-size: 1.2rem;
           }
-  
+
           &__title {
             font-size: 2.4rem;
           }
-  
+
           &__subtitle {
             font-size: 1.6rem;
           }
-  
+
           &__content {
             font-size: 1.4rem;
           }
@@ -368,7 +433,7 @@ $transition-duration: 0.4s;
             height: 14rem;
           }
         }
-  
+
         &-wrapper {
           margin-bottom: 2rem;
           &::-webkit-scrollbar,

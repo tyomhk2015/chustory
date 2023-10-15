@@ -1,12 +1,11 @@
-import { FC } from 'react';
 import styles from '../../../styles/Home.module.scss';
 import HitCounter from '../client/HitCounter';
 
-export const FooterContent: FC = async () => {
+export const FooterContent = async () => {
   return (
     <>
       <p>
-        <strong>ChuStory</strong> is an unofficial
+        <strong>ChuStory</strong> is an unofficial&nbsp;
         <a
           href='https://chunithm.sega.jp/'
           target='_blank'

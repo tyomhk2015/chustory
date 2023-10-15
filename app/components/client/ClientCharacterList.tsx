@@ -1,7 +1,6 @@
 'use client';
 
 import React, {
-  FC,
   MouseEvent,
   PropsWithChildren,
   useCallback,
@@ -10,15 +9,21 @@ import React, {
 } from 'react';
 import Modal from './Modal';
 import { IClientCharacterListProps, ICharacter } from '../../types';
+import { CharacterList } from './CharacterList';
+import { VERSIONS } from '../../constants';
+import { VersionTabList } from './VersionTabList';
 
-const ClientCharacterList: FC<PropsWithChildren<IClientCharacterListProps>> = ({
+const ClientCharacterList = ({
   characters,
-  children,
-}) => {
+}: PropsWithChildren<IClientCharacterListProps>) => {
   const fixationRef = useRef(null);
   const [selectedCharacter, setSelectedCharacter] = useState<
     ICharacter | undefined
   >(undefined);
+  const [selectedVersion, setSelectedVersion] = useState(
+    VERSIONS[0].number
+  );
+  const [isInitial, setIsInitial] = useState(true);
   const [scrollYPos, setScrollYPos] = useState(0);
 
   const toogleRootDOMFix = useCallback((doFix: boolean) => {
@@ -44,7 +49,7 @@ const ClientCharacterList: FC<PropsWithChildren<IClientCharacterListProps>> = ({
 
   const onClick = useCallback((event: MouseEvent) => {
     const targetElement = event.target as HTMLDivElement;
-    if (!(targetElement.tagName === 'IMG')) return;
+    if (!(targetElement.tagName === 'IMG' || targetElement.tagName === 'P')) return;
 
     const id = targetElement.getAttribute('data-key');
     const retrievedCharacter = characters.find(
@@ -67,10 +72,17 @@ const ClientCharacterList: FC<PropsWithChildren<IClientCharacterListProps>> = ({
 
   return (
     <div ref={fixationRef}>
-      <div
-        onClick={onClick}
-      >
-        {children}
+      <VersionTabList
+        selectedVersion={selectedVersion}
+        setSelectedVersion={setSelectedVersion}
+        setIsInitial={setIsInitial}
+      />
+      <div onClick={onClick}>
+        <CharacterList
+          characters={characters}
+          selectedVersion={selectedVersion}
+          isInitial={isInitial}
+        />
       </div>
       {selectedCharacter && (
         <Modal

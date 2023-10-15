@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import styles from '../../../styles/Home.module.scss';
 
-export const FixedBackground: FC = async () => {
+export const FixedBackground = async () => {
   return (
     <>
       <div className={styles['fixed-background']} />
