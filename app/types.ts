@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, MouseEvent, SetStateAction } from 'react';
 
 export interface ICharacter {
   id: string;
@@ -46,6 +46,8 @@ export interface IEventsForServer {
 
 export interface ICharacterListProp {
   characters: ICharacter[];
+  selectedVersion: number;
+  isInitial: boolean;
 }
 
 export interface IClientCharacterListProps {
@@ -62,4 +64,23 @@ export interface ICharacterThumbnailProps {
   character: ICharacter;
   src: string;
   loading: 'eager' | 'lazy';
+  isInitial: boolean;
+}
+
+export interface IVersion {
+  name: string;
+  number: number;
+}
+
+export interface IVersionTabListProps {
+  selectedVersion: number;
+  setSelectedVersion: Dispatch<React.SetStateAction<number>>;
+  setIsInitial: Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IVersionTabProps {
+  versionId: number;
+  versionName: string;
+  isSelected: boolean;
+  onSelectVersion: (event: MouseEvent<HTMLLabelElement>) => void;
 }
