@@ -8,7 +8,7 @@ import { MouseEvent } from 'react';
 /**
  * Episodes of the selected character.
  */
-export const EpisodeList: React.FC<IEpisodeList> = ({ episodes }) => {
+export const EpisodeList = ({ episodes }: IEpisodeList) => {
   const toggleStoryBox = (e: MouseEvent<HTMLLIElement>) => {
     const target = e.currentTarget;
     const flag = target.getAttribute('data-flag') as string;
