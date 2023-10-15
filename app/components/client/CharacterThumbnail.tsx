@@ -36,7 +36,6 @@ const CharacterThumbnail = ({
     if (!(targetElement.tagName === 'IMG' || targetElement.tagName === 'P'))
       return;
     const id = targetElement.getAttribute('data-key');
-    console.log('id', id);
     id && preloadImage(ILLUSTRATION_PATH + id + IMG_TYPE);
   }, []);
 
