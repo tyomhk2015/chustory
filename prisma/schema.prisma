@@ -17,6 +17,7 @@ model Character {
   episodes    Episode[]
   version     Int
   updatedTime DateTime  @updatedAt
+  illustrator String?
 }
 
 model Episode {
