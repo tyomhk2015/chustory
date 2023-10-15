@@ -33,9 +33,19 @@ $transition-duration: 0.4s;
     max-width: 21.6rem;
     overflow: hidden;
     padding: 1rem 0;
+    position: relative;
     text-align: center;
     transition: $transition-duration;
     width: 100%;
+
+    &::before {
+      border-radius: 0.4rem;
+      border: 1px solid #ffffff;
+      content: '';
+      height: 90%;
+      position: absolute;
+      width: 96%;
+    }
 
     &:hover {
       background-color: $highlight-color;

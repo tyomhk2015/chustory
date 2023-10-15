@@ -3,6 +3,7 @@ import { Dispatch, MouseEvent, SetStateAction } from 'react';
 export interface ICharacter {
   id: string;
   name: string;
+  illustrator: string | null;
   version: number;
   episodes: IEpisode[];
 }
