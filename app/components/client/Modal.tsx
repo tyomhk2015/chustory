@@ -5,20 +5,25 @@ import styles from '../../../styles/Home.module.scss';
 import { IClientModalProps } from '../../types';
 import { ILLUSTRATION_PATH, IMG_TYPE } from '../../constants';
 import { EpisodeList } from './EpisodeList';
-import { FC } from 'react';
+import { useState } from 'react';
 
 /**
  * Modal for showing selected character's detail.
  */
-const Modal: FC<IClientModalProps> = ({
+const Modal = ({
   selectedCharacter,
   setSelectedCharacter,
-  unFixWrapper
-}) => {
+  unFixWrapper,
+}: IClientModalProps) => {
   const closeModal = () => {
     setSelectedCharacter(undefined);
     unFixWrapper();
-  }
+  };
+  const [isImageReady, setIsImageReady] = useState(false);
+
+  const showImage = () => {
+    setIsImageReady(true);
+  };
 
   return (
     <div
@@ -36,12 +41,18 @@ const Modal: FC<IClientModalProps> = ({
           Close
         </div>
         <section className={styles['modal__content']}>
-          <h2 className={styles['modal__content__title']}>{selectedCharacter.name}</h2>
-          <div className={styles['modal__content__image']}>
+          <h2 className={styles['modal__content__title']}>
+            {selectedCharacter.name}
+          </h2>
+          <div className={styles['modal__content__image-wrapper']}>
             {/* The following takes much lesser time than next/image */}
             {/* eslint-disable @next/next/no-img-element */}
             <img
+              onLoad={showImage}
               data-cy-illustration='illustration'
+              className={classNames(styles['modal__content__image'], {
+                [styles['modal__content__image--hidden']]: !isImageReady,
+              })}
               src={ILLUSTRATION_PATH + selectedCharacter.id + IMG_TYPE}
               alt={selectedCharacter.name}
               loading='eager'
