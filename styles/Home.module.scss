@@ -167,7 +167,7 @@ $transition-duration: 0.4s;
 
     &__image {
       opacity: 1;
-      transition: opacity $transition-duration;
+      transition: $transition-duration ease-in-out;
       width: 100%;
 
       &--hidden {
@@ -179,7 +179,6 @@ $transition-duration: 0.4s;
         margin: 4rem auto 0;
         aspect-ratio: 900 / 1136;
         max-width: 60rem;
-        transition: $transition-duration ease-in-out;
         user-select: none;
       }
 
