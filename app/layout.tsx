@@ -55,6 +55,11 @@ export default function RootLayout({
             gtag('config', '${process.env.GTAG_ID}');
           `}
         </Script>
+        <Script
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_ID}`}
+          async={true}
+          crossOrigin='anonymous'
+        />
       </head>
       <body suppressHydrationWarning={true}>
         {children}
