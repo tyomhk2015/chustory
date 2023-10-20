@@ -41,6 +41,7 @@ export default function RootLayout({
         />
         <meta name='rating' content='general' />
         <meta name='theme-color' content='#040E26' />
+        <meta name="google-adsense-account" content={process.env.ADSENSE_ID} />
         <link rel='icon' href='/favicon.ico' />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTAG_ID}`}
@@ -55,11 +56,7 @@ export default function RootLayout({
             gtag('config', '${process.env.GTAG_ID}');
           `}
         </Script>
-        <Script
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_ID}`}
-          async={true}
-          crossOrigin='anonymous'
-        />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6445406783752024" crossOrigin="anonymous"></script>
       </head>
       <body suppressHydrationWarning={true}>
         {children}
