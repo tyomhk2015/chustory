@@ -22,5 +22,3 @@ export async function GET(req: NextRequest, context: IContext) {
   });
   return NextResponse.json(episodes, { status: 200 });
 }
-
-//  const episodes = await fetch(`${BASE_URL}/api/characters/:id`);
