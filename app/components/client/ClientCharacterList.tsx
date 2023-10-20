@@ -8,7 +8,11 @@ import React, {
   useState,
 } from 'react';
 import Modal from './Modal';
-import { IClientCharacterListProps, ICharacter, SelectedCharacter } from '../../types';
+import {
+  IClientCharacterListProps,
+  ICharacter,
+  SelectedCharacter,
+} from '../../types';
 import { CharacterList } from './CharacterList';
 import { VERSIONS } from '../../constants';
 import { VersionTabList } from './VersionTabList';
@@ -17,7 +21,9 @@ const ClientCharacterList = ({
   characters,
 }: PropsWithChildren<IClientCharacterListProps>) => {
   const fixationRef = useRef(null);
-  const [selectedCharacter, setSelectedCharacter] = useState<SelectedCharacter | undefined>();
+  const [selectedCharacter, setSelectedCharacter] = useState<
+    SelectedCharacter | undefined
+  >();
   const [selectedVersion, setSelectedVersion] = useState(VERSIONS[0].number);
   const [isInitial, setIsInitial] = useState(true);
   const [scrollYPos, setScrollYPos] = useState(0);
@@ -51,13 +57,13 @@ const ClientCharacterList = ({
     const id = targetElement.getAttribute('data-key');
     if (!id) return;
 
-    const character = characters.find(character => character.id === id);
-    if(!character) return;
+    const character = characters.find((character) => character.id === id);
+    if (!character) return;
 
     const currentCharacter = {
       id: id,
       name: character.name,
-      illustrator: character.illustrator
+      illustrator: character.illustrator,
     };
     setSelectedCharacter(currentCharacter);
 

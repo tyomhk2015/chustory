@@ -63,7 +63,9 @@ export interface IClientCharacterListProps {
 
 export interface IClientModalProps {
   selectedCharacter: SelectedCharacter;
-  setSelectedCharacter: Dispatch<React.SetStateAction<SelectedCharacter | undefined>>;
+  setSelectedCharacter: Dispatch<
+    React.SetStateAction<SelectedCharacter | undefined>
+  >;
   unFixWrapper: () => void;
 }
 
@@ -95,5 +97,5 @@ export interface IVersionTabProps {
 export interface IContext {
   params: {
     id: string;
-  }
+  };
 }

@@ -28,14 +28,16 @@ const Modal = ({
 
   useEffect(() => {
     const loadEpisodes = async () => {
-      const retrievedEpisodes = await(await fetch(`api/episode/${selectedCharacter.id}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': process.env.NEXT_PUBLIC_API_KEY as string
-        }
-      })).json();
-      setEpisodes(retrievedEpisodes)
+      const retrievedEpisodes = await (
+        await fetch(`api/episode/${selectedCharacter.id}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: process.env.NEXT_PUBLIC_API_KEY as string,
+          },
+        })
+      ).json();
+      setEpisodes(retrievedEpisodes);
     };
     loadEpisodes();
   }, []);
@@ -73,9 +75,7 @@ const Modal = ({
               loading='eager'
             />
           </div>
-          {episodes.length > 0 && (
-            <EpisodeList episodes={episodes} />
-          )}
+          {episodes.length > 0 && <EpisodeList episodes={episodes} />}
         </section>
       </div>
     </div>
