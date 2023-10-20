@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 import Modal from './Modal';
-import { IClientCharacterListProps, ICharacter } from '../../types';
+import { IClientCharacterListProps, ICharacter, SelectedCharacter } from '../../types';
 import { CharacterList } from './CharacterList';
 import { VERSIONS } from '../../constants';
 import { VersionTabList } from './VersionTabList';
@@ -17,12 +17,8 @@ const ClientCharacterList = ({
   characters,
 }: PropsWithChildren<IClientCharacterListProps>) => {
   const fixationRef = useRef(null);
-  const [selectedCharacter, setSelectedCharacter] = useState<
-    ICharacter | undefined
-  >(undefined);
-  const [selectedVersion, setSelectedVersion] = useState(
-    VERSIONS[0].number
-  );
+  const [selectedCharacter, setSelectedCharacter] = useState<SelectedCharacter | undefined>();
+  const [selectedVersion, setSelectedVersion] = useState(VERSIONS[0].number);
   const [isInitial, setIsInitial] = useState(true);
   const [scrollYPos, setScrollYPos] = useState(0);
 
@@ -49,20 +45,26 @@ const ClientCharacterList = ({
 
   const onClick = useCallback((event: MouseEvent) => {
     const targetElement = event.target as HTMLDivElement;
-    if (!(targetElement.tagName === 'IMG' || targetElement.tagName === 'P')) return;
+    if (!(targetElement.tagName === 'IMG' || targetElement.tagName === 'P'))
+      return;
 
     const id = targetElement.getAttribute('data-key');
-    const retrievedCharacter = characters.find(
-      (character) => character.id === id
-    );
+    if (!id) return;
 
-    if (!retrievedCharacter) return;
+    const character = characters.find(character => character.id === id);
+    if(!character) return;
+
+    const currentCharacter = {
+      id: id,
+      name: character.name,
+      illustrator: character.illustrator
+    };
+    setSelectedCharacter(currentCharacter);
 
     const currentScrollYPos = window.pageYOffset;
     toogleRootDOMFix(true);
     setScrollYPos(currentScrollYPos);
     toogleWrapperFix(true, currentScrollYPos);
-    setSelectedCharacter(retrievedCharacter);
   }, []);
 
   const unFixWrapper = () => {

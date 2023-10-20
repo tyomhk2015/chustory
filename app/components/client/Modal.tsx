@@ -2,10 +2,10 @@
 
 import classNames from 'classnames';
 import styles from '../../../styles/Home.module.scss';
-import { IClientModalProps } from '../../types';
-import { ILLUSTRATION_PATH, IMG_TYPE } from '../../constants';
+import { IClientModalProps, IEpisode } from '../../types';
+import { BASE_URL, ILLUSTRATION_PATH, IMG_TYPE } from '../../constants';
 import { EpisodeList } from './EpisodeList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /**
  * Modal for showing selected character's detail.
@@ -19,11 +19,26 @@ const Modal = ({
     setSelectedCharacter(undefined);
     unFixWrapper();
   };
+  const [episodes, setEpisodes] = useState<IEpisode[]>([]);
   const [isImageReady, setIsImageReady] = useState(false);
 
   const showImage = () => {
     setIsImageReady(true);
   };
+
+  useEffect(() => {
+    const loadEpisodes = async () => {
+      const retrievedEpisodes = await(await fetch(`${BASE_URL}/api/episode/${selectedCharacter.id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': process.env.NEXT_PUBLIC_API_KEY as string
+        }
+      })).json();
+      setEpisodes(retrievedEpisodes)
+    };
+    loadEpisodes();
+  }, []);
 
   return (
     <div
@@ -58,8 +73,8 @@ const Modal = ({
               loading='eager'
             />
           </div>
-          {selectedCharacter.episodes.length > 0 && (
-            <EpisodeList episodes={selectedCharacter.episodes} />
+          {episodes.length > 0 && (
+            <EpisodeList episodes={episodes} />
           )}
         </section>
       </div>

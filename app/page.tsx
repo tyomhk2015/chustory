@@ -13,17 +13,6 @@ const Home = async () => {
       name: true,
       version: true,
       illustrator: true,
-      episodes: {
-        select: {
-          characterId: true,
-          title: true,
-          subtitle: true,
-          story: true,
-        },
-        orderBy: {
-          order: 'asc',
-        },
-      },
     },
   });
 
