@@ -3,7 +3,7 @@
 import classNames from 'classnames';
 import styles from '../../../styles/Home.module.scss';
 import { IClientModalProps, IEpisode } from '../../types';
-import { BASE_URL, ILLUSTRATION_PATH, IMG_TYPE } from '../../constants';
+import { ILLUSTRATION_PATH, IMG_TYPE } from '../../constants';
 import { EpisodeList } from './EpisodeList';
 import { useEffect, useState } from 'react';
 
@@ -28,7 +28,7 @@ const Modal = ({
 
   useEffect(() => {
     const loadEpisodes = async () => {
-      const retrievedEpisodes = await(await fetch(`${BASE_URL}/api/episode/${selectedCharacter.id}`, {
+      const retrievedEpisodes = await(await fetch(`api/episode/${selectedCharacter.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

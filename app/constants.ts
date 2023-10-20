@@ -1,11 +1,6 @@
 import { IVersion } from './types';
 
 /**
- * URLs for API
- */
-export const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://chustory.net';
-
-/**
  * Image related constants
  */
 // export const ILLUSTRATION_URL = 'https://chunithm.sega.jp/storage/chara/chunithm-new/illustration/';
