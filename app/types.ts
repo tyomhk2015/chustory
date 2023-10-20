@@ -5,7 +5,6 @@ export interface ICharacter {
   name: string;
   illustrator: string | null;
   version: number;
-  episodes: IEpisode[];
 }
 
 export interface ICharacterAdd {
@@ -19,6 +18,7 @@ export interface IEpisode {
   title: string;
   subtitle: string;
   story: string;
+  order: number;
 }
 
 export interface ICharacterList {
@@ -26,6 +26,12 @@ export interface ICharacterList {
   version: number;
   versionName: string;
   selectCharacter: (e: React.MouseEvent<HTMLElement>) => void;
+}
+
+export interface SelectedCharacter {
+  id: string;
+  name: string;
+  illustrator: string | null;
 }
 
 export interface IModal {
@@ -56,8 +62,8 @@ export interface IClientCharacterListProps {
 }
 
 export interface IClientModalProps {
-  selectedCharacter: ICharacter;
-  setSelectedCharacter: Dispatch<SetStateAction<ICharacter | undefined>>;
+  selectedCharacter: SelectedCharacter;
+  setSelectedCharacter: Dispatch<React.SetStateAction<SelectedCharacter | undefined>>;
   unFixWrapper: () => void;
 }
 
@@ -84,4 +90,10 @@ export interface IVersionTabProps {
   versionName: string;
   isSelected: boolean;
   onSelectVersion: (event: MouseEvent<HTMLLabelElement>) => void;
+}
+
+export interface IContext {
+  params: {
+    id: string;
+  }
 }
