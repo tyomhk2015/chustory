@@ -74,6 +74,11 @@ const Modal = ({
               alt={selectedCharacter.name}
               loading='eager'
             />
+            {selectedCharacter.illustrator && (
+              <p className={styles['modal__content__image-illustrator']}>
+                ©{selectedCharacter.illustrator}
+              </p>
+            )}
           </div>
           {episodes.length > 0 && <EpisodeList episodes={episodes} />}
         </section>
