@@ -75,7 +75,9 @@ const Modal = ({
               loading='eager'
             />
             {selectedCharacter.illustrator && (
-              <p className={styles['modal__content__image-illustrator']}>
+              <p className={classNames(styles['modal__content__image-illustrator'], {
+                [styles['modal__content__image-illustrator--hidden']]: !isImageReady,
+              })}>
                 ©{selectedCharacter.illustrator}
               </p>
             )}
