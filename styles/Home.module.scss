@@ -458,6 +458,12 @@ $transition-duration: 0.4s;
           }
         }
       }
+
+      &__image {
+        &-illustrator {
+          font-size: 1.5rem;
+        }
+      }
     }
 
     &__close-button {
