@@ -33,6 +33,9 @@ export async function GET(req: NextRequest, context: IContext) {
     where: {
       characterId: id,
     },
+    orderBy: {
+      order: 'asc'
+    }
   });
 
   return NextResponse.json(episodes, { status: 200, headers: headers });
