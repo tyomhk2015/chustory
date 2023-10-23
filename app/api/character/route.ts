@@ -7,8 +7,6 @@ export async function GET(req: NextRequest) {
     req.headers.get('authorization') === process.env.NEXT_PUBLIC_API_KEY;
   if (!isValidRequest) return NextResponse.json({ status: 401 });
 
-  console.log('HOST', req.headers.get('host'));
-
   const allowedOrigin = ['https://chustory.net'];
   const requestOrigin = req.headers.get('origin');
   const headers: IHeaders = {};

@@ -7,7 +7,7 @@ export const dynamic = 'error';
 
 const Home = async () => {
   const characters: ICharacter[] = await (
-    await fetch('https://chustory.net/api/character', {
+    await fetch('api/character', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
