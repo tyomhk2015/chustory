@@ -1,9 +1,10 @@
 'use client';
 
 import classNames from 'classnames';
-import { IEpisodeList } from '../../../hook/useCharacter';
+
 import styles from '../../../styles/Home.module.scss';
 import { MouseEvent } from 'react';
+import { IEpisodeList } from '../../types';
 
 /**
  * Episodes of the selected character.
