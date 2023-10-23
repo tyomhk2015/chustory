@@ -18,7 +18,6 @@ export interface IEpisode {
   title: string;
   subtitle: string;
   story: string;
-  order: number;
 }
 
 export interface ICharacterList {
