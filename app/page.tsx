@@ -2,20 +2,19 @@ import styles from '../styles/Home.module.scss';
 import { ICharacter } from './types';
 import ClientCharacterList from './components/client/ClientCharacterList';
 import { FooterContent } from './components/server/FooterContent';
+import prismaClient from './lib/prismaClient';
 
 export const dynamic = 'error';
 
 const Home = async () => {
-  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https'
-  const characters: ICharacter[] = await (
-    await fetch(`${protocol}://localhost:3000/api/character`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: process.env.NEXT_PUBLIC_API_KEY as string,
-      },
-    })
-  ).json();
+  const characters: ICharacter[] = await prismaClient.character.findMany({
+    select: {
+      id: true,
+      name: true,
+      version: true,
+      illustrator: true,
+    },
+  });
 
   return (
     <div className={styles['wrapper']}>
