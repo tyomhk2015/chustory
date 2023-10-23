@@ -28,6 +28,9 @@ export async function GET(req: NextRequest) {
       version: true,
       illustrator: true,
     },
+    orderBy: {
+      id: 'desc'
+    }
   });
 
   return NextResponse.json(characters, { status: 200, headers: headers });
