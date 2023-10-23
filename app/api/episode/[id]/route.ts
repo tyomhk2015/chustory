@@ -28,7 +28,6 @@ export async function GET(req: NextRequest, context: IContext) {
       title: true,
       subtitle: true,
       story: true,
-      order: true,
     },
     where: {
       characterId: id,

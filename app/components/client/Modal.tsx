@@ -27,6 +27,8 @@ const Modal = ({
   };
 
   useEffect(() => {
+    if (!selectedCharacter || !selectedCharacter.id) return;
+
     const loadEpisodes = async () => {
       const retrievedEpisodes = await (
         await fetch(`api/episode/${selectedCharacter.id}`, {
