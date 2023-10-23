@@ -1,8 +1,8 @@
-import prismaClient from './lib/prismaClient';
 import styles from '../styles/Home.module.scss';
 import { ICharacter } from './types';
 import ClientCharacterList from './components/client/ClientCharacterList';
 import { FooterContent } from './components/server/FooterContent';
+import prismaClient from './lib/prismaClient';
 
 export const dynamic = 'error';
 
