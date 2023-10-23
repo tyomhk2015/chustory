@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import prismaClient from '../../../lib/prismaClient';
-import { IContext, IEpisode, IHeaders } from '../../../types';
+import prismaClient from '../../lib/prismaClient';
+import { ICharacter, IHeaders } from '../../types';
 
-export async function GET(req: NextRequest, context: IContext) {
+export async function GET(req: NextRequest) {
   const isValidRequest =
     req.headers.get('authorization') === process.env.NEXT_PUBLIC_API_KEY;
   if (!isValidRequest) return NextResponse.json({ status: 401 });
+
+  console.log('HOST', req.headers.get('host'));
 
   const allowedOrigin = ['https://chustory.net'];
   const requestOrigin = req.headers.get('origin');
@@ -17,19 +19,14 @@ export async function GET(req: NextRequest, context: IContext) {
     headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization';
   }
 
-  const id = context.params.id;
-  const episodes: IEpisode[] = await prismaClient.episode.findMany({
+  const characters: ICharacter[] = await prismaClient.character.findMany({
     select: {
-      characterId: true,
-      title: true,
-      subtitle: true,
-      story: true,
-      order: true,
-    },
-    where: {
-      characterId: id,
+      id: true,
+      name: true,
+      version: true,
+      illustrator: true,
     },
   });
 
-  return NextResponse.json(episodes, { status: 200, headers: headers });
+  return NextResponse.json(characters, { status: 200, headers: headers });
 }

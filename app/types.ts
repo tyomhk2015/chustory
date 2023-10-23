@@ -1,4 +1,4 @@
-import { Dispatch, MouseEvent, SetStateAction } from 'react';
+import { Dispatch, MouseEvent } from 'react';
 
 export interface ICharacter {
   id: string;
@@ -44,7 +44,6 @@ export interface IModal {
 
 export interface IEpisodeList {
   episodes: IEpisode[];
-  toggleStoryBox: (e: React.MouseEvent<HTMLLIElement>) => void;
 }
 
 export interface IEventsForServer {
@@ -98,4 +97,8 @@ export interface IContext {
   params: {
     id: string;
   };
+}
+
+export interface IHeaders {
+  [key: string]: string;
 }
