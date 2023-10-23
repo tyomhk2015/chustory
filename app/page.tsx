@@ -6,8 +6,9 @@ import { FooterContent } from './components/server/FooterContent';
 export const dynamic = 'error';
 
 const Home = async () => {
+  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https'
   const characters: ICharacter[] = await (
-    await fetch('api/character', {
+    await fetch(`${protocol}://localhost:3000/api/character`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
