@@ -14,8 +14,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // https://developers.google.com/search/docs/crawling-indexing/special-tags
-  // <meta name="google-site-verification" content="...">
   return (
     <html lang='ko'>
       <head>
@@ -41,7 +39,6 @@ export default function RootLayout({
         />
         <meta name='rating' content='general' />
         <meta name='theme-color' content='#040E26' />
-        <meta name="google-adsense-account" content={process.env.ADSENSE_ID} />
         <link rel='icon' href='/favicon.ico' />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTAG_ID}`}
@@ -56,7 +53,6 @@ export default function RootLayout({
             gtag('config', '${process.env.GTAG_ID}');
           `}
         </Script>
-        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_ID}`} crossOrigin="anonymous"></script>
       </head>
       <body suppressHydrationWarning={true}>
         {children}
