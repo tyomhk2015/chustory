@@ -5,9 +5,15 @@ import { IVersion } from './types';
  */
 // export const ILLUSTRATION_URL = 'https://chunithm.sega.jp/storage/chara/chunithm-new/illustration/';
 export const ILLUSTRATION_PATH = '/illustration/';
+export const ILLUSTRATION_TRANSFORM_PATH = '/illustration/transform/';
 export const THUMBNAIL_PATH = '/thumbnail/';
 export const IMG_TYPE = '.webp';
 export const PLACEHOLDER_IMG_PATH = `/fallback/placeholder${IMG_TYPE}`;
+
+/**
+ * Numeral constants
+ */
+export const TRANSITION_DURATION = 500;
 
 /**
  * A list of all Chunithm versions.
