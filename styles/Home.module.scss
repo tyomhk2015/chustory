@@ -198,7 +198,7 @@ $transition-duration: 0.4s;
         text-align: right;
         opacity: 1;
         transition: opacity $transition-duration;
-    
+
         &--hidden {
           opacity: 0;
         }
@@ -304,45 +304,44 @@ $transition-duration: 0.4s;
     }
   }
 
-  &__close-button {
-    color: #ffffff;
-    font-size: 4rem;
-    overflow: hidden;
-    position: fixed;
-    right: 1rem;
-    line-height: 1;
-    text-indent: 100%;
-    white-space: nowrap;
-    z-index: 1;
+  &__close {
+    &-button {
+      fill: #ffffff;
+      height: 6rem;
+      right: 1rem;
+      overflow: hidden;
+      position: fixed;
+      top: 1rem;
+      width: 6rem;
+      z-index: 1;
 
-    &:hover {
-      cursor: pointer;
-      transition: $transition-duration;
-
-      &::after,
-      &::before {
-        height: 0.3rem;
+      &:hover {
+        cursor: pointer;
       }
     }
+  }
 
-    &::after,
-    &::before {
-      background-color: #ffffff;
-      content: '';
-      display: block;
-      height: 0.2rem;
-      position: absolute;
-      right: 2rem;
-      top: 50%;
-      width: 6rem;
-    }
+  &__transform {
+    &-button {
+      fill: #ffffff;
+      height: 5rem;
+      left: 1rem;
+      opacity: 1;
+      overflow: hidden;
+      position: fixed;
+      transition: opacity $transition-duration;
+      top: 1.5rem;
+      width: 5rem;
+      z-index: 1;
 
-    &::before {
-      transform: rotate(45deg);
-    }
+      &:hover {
+        cursor: pointer;
+      }
 
-    &::after {
-      transform: rotate(-45deg) translateY(-50%);
+      &--hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
     }
   }
 
@@ -470,11 +469,6 @@ $transition-duration: 0.4s;
           font-size: 1.5rem;
         }
       }
-    }
-
-    &__close-button {
-      top: 1rem;
-      right: -2rem;
     }
   }
 }

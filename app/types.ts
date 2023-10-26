@@ -35,10 +35,18 @@ export interface SelectedCharacter {
 
 export interface IModal {
   isActive: boolean;
-
   getCharacter: () => ICharacter | undefined;
   unselectCharacter: () => void;
   toggleStoryBox: (e: React.MouseEvent<HTMLLIElement>) => void;
+}
+
+export interface IModalImage {
+  selectedCharacterName: string;
+  normalPath: string;
+  transformPath: string;
+  isTransform: boolean;
+  isImageReady: boolean;
+  showImage: () => void;
 }
 
 export interface IEpisodeList {
