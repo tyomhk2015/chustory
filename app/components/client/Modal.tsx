@@ -32,7 +32,6 @@ const Modal = ({
   const [isTransitionEnd, setIsTransitionEnd] = useState(false);
 
   let timeoutToggle = 0;
-  let timeoutShowImage = 0;
   const normalPath = ILLUSTRATION_PATH + selectedCharacter.id + IMG_TYPE;
   const transformPath =
     ILLUSTRATION_TRANSFORM_PATH + selectedCharacter.id + IMG_TYPE;
@@ -47,11 +46,9 @@ const Modal = ({
     );
   };
 
-  const showImage = () => {
-    timeoutShowImage = window.setTimeout(() => {
-      setIsImageReady(true);
-      setIsTransitionEnd(true);
-    }, TRANSITION_DURATION);
+  const showImage = async () => {
+    setIsImageReady(true);
+    setIsTransitionEnd(true);
   };
 
   useEffect(() => {
@@ -86,8 +83,7 @@ const Modal = ({
 
     return () => {
       window.clearTimeout(timeoutToggle);
-      window.clearTimeout(timeoutShowImage);
-    }
+    };
   }, []);
 
   return (

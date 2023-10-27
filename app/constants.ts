@@ -13,7 +13,7 @@ export const PLACEHOLDER_IMG_PATH = `/fallback/placeholder${IMG_TYPE}`;
 /**
  * Numeral constants
  */
-export const TRANSITION_DURATION = 500;
+export const TRANSITION_DURATION = 300;
 
 /**
  * A list of all Chunithm versions.
