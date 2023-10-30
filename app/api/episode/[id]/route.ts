@@ -8,15 +8,14 @@ export async function GET(req: NextRequest, context: IContext) {
     req.headers.get('authorization') === process.env.NEXT_PUBLIC_API_KEY;
   if (!isValidRequest) {
     NextResponse.json({ status: 401 });
-    redirect('/not-found');
+    redirect('/');
   }
 
-  const allowedOrigin = ['https://chustory.net'];
   const requestOrigin = req.headers.get('origin');
   const headers: IHeaders = {};
 
-  if (requestOrigin && allowedOrigin.includes(requestOrigin)) {
-    headers['Access-Control-Allow-Origin'] = origin;
+  if (requestOrigin === process.env.ALLOWED_ORIGIN) {
+    headers['Access-Control-Allow-Origin'] = process.env.ALLOWED_ORIGIN;
     headers['Access-Control-Allow-Methods'] = 'GET';
     headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization';
   }
