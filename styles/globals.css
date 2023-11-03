@@ -3,7 +3,6 @@ body {
   background-color: #040e26;
   font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
   font-size: 10px;
-  scroll-behavior: smooth;
 }
 
 * {
