@@ -10,30 +10,15 @@ import { IEpisodeList } from '../../types';
  * Episodes of the selected character.
  */
 export const EpisodeList = ({ episodes }: IEpisodeList) => {
-  const toggleStoryBox = (e: MouseEvent<HTMLLIElement>) => {
-    const target = e.currentTarget;
-    const flag = target.getAttribute('data-flag') as string;
-    const isClosed = target.className.indexOf(flag) > 0;
-
-    isClosed ? target.classList.remove(flag) : target.classList.add(flag);
-  };
-
   return (
     <div className={styles['modal__content__episodes-wrapper']}>
-      <ol className={styles['modal__content__episodes']}>
+      <div className={styles['modal__content__episodes']}>
         {episodes.map((episode, index) => (
-          <li
+          <details
             key={index}
-            onClick={toggleStoryBox}
-            data-flag={styles['modal__content__episodes__story--closed']}
-            className={classNames(
-              styles['modal__content__episodes__story'],
-              styles['modal__content__episodes__story--closed']
-            )}
+            className={classNames(styles['modal__content__episodes__story'])}
           >
-            <p className={styles['modal__content__episodes__story__number']}>
-              Episode {index + 1}
-            </p>
+            <summary>Episode {index + 1}</summary>
             <h3 className={styles['modal__content__episodes__story__title']}>
               {episode.title}
             </h3>
@@ -44,9 +29,9 @@ export const EpisodeList = ({ episodes }: IEpisodeList) => {
               className={styles['modal__content__episodes__story__content']}
               dangerouslySetInnerHTML={{ __html: episode.story }}
             />
-          </li>
+          </details>
         ))}
-      </ol>
+      </div>
     </div>
   );
 };
