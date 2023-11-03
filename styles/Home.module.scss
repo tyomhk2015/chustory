@@ -223,11 +223,12 @@ $transition-duration: 0.4s;
       border-radius: 8px;
       color: #ffffff;
       flex-shrink: 0;
+      margin: 0 auto;
       padding: 1.6rem;
       transform: rotateX(180deg);
       transition: background-color $transition-duration;
       user-select: none;
-      width: 100%;
+      max-width: 80%;
 
       &__story {
         & > summary {
@@ -429,6 +430,8 @@ $transition-duration: 0.4s;
       }
 
       &__episodes {
+        max-width: 100%;
+
         &__story {
           & > summary {
             font-size: 2rem;
