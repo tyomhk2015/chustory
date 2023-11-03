@@ -10,7 +10,7 @@ import {
   TRANSITION_DURATION,
 } from '../../constants';
 import { EpisodeList } from './EpisodeList';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ModalImage from './ModalImage';
 
 /**
@@ -21,10 +21,7 @@ const Modal = ({
   setSelectedCharacter,
   unFixWrapper,
 }: IClientModalProps) => {
-  const closeModal = () => {
-    setSelectedCharacter(undefined);
-    unFixWrapper();
-  };
+  const modalRef = useRef<HTMLDivElement>(null);
   const [episodes, setEpisodes] = useState<IEpisode[]>([]);
   const [isImageReady, setIsImageReady] = useState(false);
   const [isTransformExist, setIsTransformExist] = useState(false);
@@ -44,6 +41,15 @@ const Modal = ({
       () => setIsTransform((prevState) => !prevState),
       TRANSITION_DURATION
     );
+  };
+
+  const closeModal = () => {
+    setSelectedCharacter(undefined);
+    unFixWrapper();
+  };
+
+  const scrollTop = () => {
+    modalRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const showImage = async () => {
@@ -91,7 +97,7 @@ const Modal = ({
       data-cy-modal='modal'
       className={classNames(styles['modal'], [styles['modal--active']])}
     >
-      <div className={styles['modal__content-wrapper']}>
+      <div ref={modalRef} className={styles['modal__content-wrapper']}>
         <div
           data-cy-transform-button='transFormButton'
           className={classNames(styles['modal__transform-button'], {
@@ -149,6 +155,17 @@ const Modal = ({
           </div>
           {episodes.length > 0 && <EpisodeList episodes={episodes} />}
         </section>
+        <div onClick={scrollTop} className={styles['modal__scrollTop']}>
+          <svg
+            focusable='false'
+            aria-hidden='true'
+            viewBox='0 0 24 24'
+            data-testid='KeyboardDoubleArrowUpIcon'
+          >
+            <path d='M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z'></path>
+            <path d='m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z'></path>
+          </svg>
+        </div>
       </div>
     </div>
   );

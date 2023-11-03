@@ -217,34 +217,34 @@ $transition-duration: 0.4s;
     }
 
     &__episodes {
-      align-items: flex-end;
-      justify-content: space-between;
-      display: flex;
-      gap: 2rem;
-      padding-top: 4rem;
+      background-color: #141414;
+      box-shadow: 0 0.2rem 0.4rem 0.2rem #000000;
+      border: 2px solid #aaaaaa;
+      border-radius: 8px;
+      color: #ffffff;
+      flex-shrink: 0;
+      padding: 1.6rem;
+      transform: rotateX(180deg);
+      transition: background-color $transition-duration;
+      user-select: none;
+      width: 100%;
 
       &__story {
-        background-color: #141414;
-        box-shadow: 0 0.2rem 0.4rem 0.2rem #000000;
-        border: 2px solid #aaaaaa;
-        border-radius: 8px;
-        color: #ffffff;
-        cursor: pointer;
-        flex-shrink: 0;
-        max-width: 40vw;
-        padding: 1.6rem;
-        transform: rotateX(180deg);
-        transition: background-color $transition-duration;
-        user-select: none;
-        width: 100%;
+        & > summary {
+          cursor: pointer;
+          font-size: 3rem;
+          font-weight: 700;
+          line-height: 2;
+          text-align: center;
 
-        &:hover {
-          background-color: #333333;
+          &:hover {
+            background-color: #333333;
+            border-radius: 8px;
+          }
         }
 
-        &__number {
-          font-size: 1.6rem;
-          font-weight: 700;
+        & + & {
+          margin-top: 16px;
         }
 
         &__title {
@@ -265,19 +265,6 @@ $transition-duration: 0.4s;
 
           & > a {
             color: #ffffff;
-          }
-        }
-
-        &--closed {
-          border: 1px solid #8a8a8a;
-          height: 16rem;
-          overflow: hidden;
-
-          & > .modal__content__episodes__story__subtitle {
-            display: -webkit-box;
-            overflow: hidden;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
           }
         }
       }
@@ -328,7 +315,7 @@ $transition-duration: 0.4s;
       left: 1rem;
       opacity: 1;
       overflow: hidden;
-      position: fixed;
+      position: absolute;
       transition: opacity $transition-duration;
       top: 1.5rem;
       width: 5rem;
@@ -343,6 +330,18 @@ $transition-duration: 0.4s;
         pointer-events: none;
       }
     }
+  }
+
+  &__scrollTop {
+    cursor: pointer;
+    fill: #ffffff;
+    height: 6rem;
+    right: 1rem;
+    overflow: hidden;
+    position: fixed;
+    bottom: 1rem;
+    width: 6rem;
+    z-index: 1;
   }
 
   &--active {
@@ -431,10 +430,8 @@ $transition-duration: 0.4s;
 
       &__episodes {
         &__story {
-          max-width: 80vw;
-
-          &__number {
-            font-size: 1.2rem;
+          & > summary {
+            font-size: 2rem;
           }
 
           &__title {
@@ -447,10 +444,6 @@ $transition-duration: 0.4s;
 
           &__content {
             font-size: 1.4rem;
-          }
-
-          &--closed {
-            height: 14rem;
           }
         }
 
