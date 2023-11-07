@@ -153,6 +153,14 @@ $transition-duration: 0.4s;
     display: block;
     margin-top: 1rem;
   }
+
+  &__contact {
+    &-x {
+      display: block;
+      margin: 1rem auto 0;
+      width: 2rem;
+    }
+  }
 }
 
 .modal {
