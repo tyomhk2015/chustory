@@ -155,10 +155,26 @@ $transition-duration: 0.4s;
   }
 
   &__contact {
+    font-weight: 700;
+    font-size: 1.5rem;
+
+    &-icons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
     &-x {
       display: block;
-      margin: 1rem auto 0;
-      width: 2rem;
+      width: 2.5rem;
+    }
+
+    &-toss {
+      display: block;
+      & > img {
+        width: 2.5rem;
+      }
     }
   }
 }
