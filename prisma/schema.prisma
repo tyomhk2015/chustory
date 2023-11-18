@@ -20,9 +20,31 @@ model Character {
   illustrator String?
 }
 
+model CharacterEn {
+  id          String    @id
+  name        String
+  episodes    EpisodeEn[]
+  version     Int
+  updatedTime DateTime  @updatedAt
+  illustrator String?
+}
+
 model Episode {
   id          Int       @id @default(autoincrement())
   character   Character? @relation(fields: [characterId], references: [id])
+  @@index([characterId])
+  characterId String
+  identifier  String    @unique
+  title       String
+  subtitle    String
+  story       String    @db.LongText
+  order       Int
+  updatedTime DateTime  @updatedAt
+}
+
+model EpisodeEn {
+  id          Int       @id @default(autoincrement())
+  character   CharacterEn? @relation(fields: [characterId], references: [id])
   @@index([characterId])
   characterId String
   identifier  String    @unique

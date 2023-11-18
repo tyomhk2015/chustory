@@ -21,20 +21,40 @@ export async function GET(req: NextRequest, context: IContext) {
   }
 
   const id = context.params.id;
-  const episodes: IEpisode[] = await prismaClient.episode.findMany({
-    select: {
-      characterId: true,
-      title: true,
-      subtitle: true,
-      story: true,
-    },
-    where: {
-      characterId: id,
-    },
-    orderBy: {
-      order: 'asc'
-    }
-  });
+  const lang = req.headers.get('Language');
+
+  let episodes: IEpisode[];
+  if (lang !== 'En') {
+    episodes = await prismaClient.episode.findMany({
+      select: {
+        characterId: true,
+        title: true,
+        subtitle: true,
+        story: true,
+      },
+      where: {
+        characterId: id,
+      },
+      orderBy: {
+        order: 'asc',
+      },
+    });
+  } else {
+    episodes = await prismaClient.episodeEn.findMany({
+      select: {
+        characterId: true,
+        title: true,
+        subtitle: true,
+        story: true,
+      },
+      where: {
+        characterId: id,
+      },
+      orderBy: {
+        order: 'asc',
+      },
+    });
+  }
 
   return NextResponse.json(episodes, { status: 200, headers: headers });
 }
