@@ -72,12 +72,15 @@ const Modal = ({
     };
 
     const loadEpisodes = async () => {
+      const english =
+        window.location.pathname.split('/')[1] === 'en' ? 'En' : '';
       const retrievedEpisodes = await (
         await fetch(`api/episode/${selectedCharacter.id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
             Authorization: process.env.NEXT_PUBLIC_API_KEY as string,
+            Language: english,
           },
         })
       ).json();
