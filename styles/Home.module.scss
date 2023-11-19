@@ -400,6 +400,38 @@ $transition-duration: 0.4s;
   }
 }
 
+.notFound {
+  &-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    color: #ffffff;
+    font-size: 4rem;
+    line-height: 1.5;
+  }
+
+  &__links {
+    display: grid;
+    font-size: 2rem;
+    gap: 2rem;
+    line-height: 1.5;
+    margin-top: 4rem;
+
+    & > a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+    }
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .wrapper {
     padding: 1rem;
