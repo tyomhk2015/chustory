@@ -17,25 +17,14 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <head>
-        <title>Chunithm Character Story | 츄니즘 캐릭터 스토리</title>
-        <meta charSet='UTF-8' />
-        <meta
-          name='application-name'
-          content='Chunithm Character Story | 츄니즘 캐릭터 스토리'
-        />
         <meta name='author' content='©SEGA' />
         <meta name='creator' content='©SEGA' />
         <meta name='copyright' content='©SEGA' />
         <meta name='publisher' content='©ChuStory' />
-        <meta
-          name='description'
-          content='츄니즘 캐릭터 스토리 | Chunithm Character Story | 츄니즘 스토리 | Chunithm Story'
-        />
         <meta name='robots' content='index, follow' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta
           name='keywords'
-          content='츄니즘, Chunithm, チュウニズム, チューニズム, 세가, SEGA, セガ, 리듬게임, Rhythm Game, 音ゲー, BMS, 스토리, Story, ストーリー, 캐릭터, Character, キャラクター、キャラ―'
+          content='츄니즘, Chunithm, チュウニズム, チューニズム, 주식회사 SEGA, SEGA, セガ, 리듬게임, Rhythm Game, 音ゲー, BMS, 스토리, Story, ストーリー, 캐릭터, Character, キャラクター、キャラ―'
         />
         <meta name='rating' content='general' />
         <meta name='theme-color' content='#040E26' />
