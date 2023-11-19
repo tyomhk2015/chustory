@@ -10,13 +10,15 @@ export const dynamic = 'error';
 export const metadata: Metadata = {
   applicationName: '츄니즘 캐릭터 스토리',
   title: '츄니즘 캐릭터 스토리',
-  description: '츄니즘 캐릭터 스토리는 주식회사 SEGA에서 출시한 츄니즘 게임에 등장하는 캐릭터들의 스토리들을 즐길 수 있는 곳입니다.',
+  description:
+    '츄니즘 캐릭터 스토리는 주식회사 SEGA에서 출시한 츄니즘 게임에 등장하는 캐릭터들의 스토리들을 즐길 수 있는 곳입니다.',
   openGraph: {
     siteName: '츄니즘 캐릭터 스토리',
     title: '츄니즘 캐릭터 스토리',
-    description: '츄니즘 캐릭터 스토리는 주식회사 SEGA에서 출시한 츄니즘 게임에 등장하는 캐릭터들의 스토리들을 즐길 수 있는 곳입니다.',
+    description:
+      '츄니즘 캐릭터 스토리는 주식회사 SEGA에서 출시한 츄니즘 게임에 등장하는 캐릭터들의 스토리들을 즐길 수 있는 곳입니다.',
     url: 'https://www.chustory.net/',
-    images: 'https://chunithm.sega.com/assets/img/ogp.png'
+    images: 'https://chunithm.sega.com/assets/img/ogp.png',
   },
 };
 

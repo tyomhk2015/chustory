@@ -10,13 +10,15 @@ export const dynamic = 'error';
 export const metadata: Metadata = {
   applicationName: 'Chunithm Character Story',
   title: 'Chunithm Character Story',
-  description: 'Chunithm Character Story is a place for enjoying stories of the characters that are in Chunithm, which is proudly presented by SEGA Co., Ltd.',
+  description:
+    'Chunithm Character Story is a place for enjoying stories of the characters that are in Chunithm, which is proudly presented by SEGA Co., Ltd.',
   openGraph: {
     siteName: 'Chunithm Character Story',
     title: 'Chunithm Character Story',
-    description: 'Chunithm Character Story is a place for enjoying stories of the characters that are in Chunithm, which is proudly presented by SEGA Co., Ltd.',
+    description:
+      'Chunithm Character Story is a place for enjoying stories of the characters that are in Chunithm, which is proudly presented by SEGA Co., Ltd.',
     url: 'https://www.chustory.net/en',
-    images: 'https://chunithm.sega.com/assets/img/ogp.png'
+    images: 'https://chunithm.sega.com/assets/img/ogp.png',
   },
 };
 
