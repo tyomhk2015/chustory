@@ -1,8 +1,6 @@
 import styles from '../../styles/Home.module.scss';
-import { ICharacter } from '../types';
-import ClientCharacterList from '../components/client/ClientCharacterList';
+import Link from 'next/link';
 import { FooterContent } from '../components/server/FooterContent';
-import prismaClient from '../lib/prismaClient';
 import type { Metadata } from 'next';
 
 export const dynamic = 'error';
@@ -22,23 +20,16 @@ export const metadata: Metadata = {
   },
 };
 
-const EnPage = async () => {
-  const characters: ICharacter[] = await prismaClient.characterEn.findMany({
-    select: {
-      id: true,
-      name: true,
-      version: true,
-      illustrator: true,
-    },
-  });
-
+const NotFound = async () => {
   return (
     <div className={styles['wrapper']}>
-      <main>
-        <h1 className={styles['main__title']}>Chunithm Character Story</h1>
-        <ClientCharacterList characters={characters} />
-      </main>
-
+      <div className={styles['notFound-wrapper']}>
+        <h1 className={styles['notFound__title']}>Return To </h1>
+        <div className={styles['notFound__links']}>
+          <Link href='/'>▶ Chustory 🇰🇷</Link>
+          <Link href='/en'>▶ Chustory 🇺🇸</Link>
+        </div>
+      </div>
       <footer className={styles['footer']}>
         <FooterContent />
       </footer>
@@ -46,4 +37,4 @@ const EnPage = async () => {
   );
 };
 
-export default EnPage;
+export default NotFound;
