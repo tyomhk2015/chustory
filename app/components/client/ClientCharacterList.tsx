@@ -4,6 +4,7 @@ import React, {
   MouseEvent,
   PropsWithChildren,
   useCallback,
+  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -77,6 +78,13 @@ const ClientCharacterList = ({
     toogleRootDOMFix(false);
     toogleWrapperFix(false, scrollYPos);
   };
+
+  useLayoutEffect(() => {
+    const scripts = document.querySelectorAll('script');
+    scripts.forEach(script => {
+      script.parentNode?.removeChild(script);
+    });
+  }, []);
 
   return (
     <div ref={fixationRef}>
