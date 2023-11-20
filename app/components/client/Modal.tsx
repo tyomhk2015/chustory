@@ -62,9 +62,13 @@ const Modal = ({
 
     const checkTransformImage = async () => {
       try {
-        const response = await fetch(transformPath, {
-          method: 'HEAD',
-        });
+        const response = await(await fetch(`api/transform/${selectedCharacter.id}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: process.env.NEXT_PUBLIC_API_KEY as string,
+          }
+        })).json();
         setIsTransformExist(response.ok);
       } catch (error) {
         setIsTransformExist(false);
