@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { FooterContent } from './components/server/FooterContent';
 import type { Metadata } from 'next';
 
-export const dynamic = 'error';
-
 export const metadata: Metadata = {
   applicationName: 'Chunithm Character Story',
   title: 'Chunithm Character Story',
