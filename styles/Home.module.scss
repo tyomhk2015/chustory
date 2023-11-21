@@ -148,13 +148,13 @@ $transition-duration: 0.4s;
   }
 
   &__copyright,
-  &__contact,
   &__hit {
     display: block;
     margin-top: 1rem;
   }
 
   &__contact {
+    display: inline-block;
     font-weight: 700;
     font-size: 1.5rem;
 
@@ -182,7 +182,7 @@ $transition-duration: 0.4s;
 .modal {
   display: none;
   backdrop-filter: blur(1rem);
-  background-color: #000000ee;
+  background-color: #000000e9;
   bottom: 0;
   left: 0;
   position: fixed;
@@ -432,6 +432,20 @@ $transition-duration: 0.4s;
   }
 }
 
+.language {
+  text-align: center;
+  margin: 6rem auto 0;
+
+  & > a {
+  color: #000000;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .wrapper {
     padding: 1rem;
@@ -522,6 +536,17 @@ $transition-duration: 0.4s;
           font-size: 1.5rem;
         }
       }
+    }
+  }
+
+  .footer {
+    margin-top: 2rem;
+  }
+
+  .language {
+    margin: 3rem auto 0;
+    & > a {
+      font-size: 1.3rem;
     }
   }
 }

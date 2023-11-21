@@ -109,3 +109,7 @@ export interface IContext {
 export interface IHeaders {
   [key: string]: string;
 }
+
+export interface ILanguage {
+  isKr: boolean;
+}
