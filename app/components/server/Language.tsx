@@ -10,7 +10,7 @@ export const Language = async (props: ILanguage) => {
       {isKr ? (
         <Link href='/en'>English 🇺🇸</Link>
       ) : (
-        <Link href='/'>한국어 🇰🇷</Link>
+        <Link href='../'>한국어 🇰🇷</Link>
       )}
     </div>
   );
