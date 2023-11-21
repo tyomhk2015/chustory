@@ -8,9 +8,9 @@ export const Language = async (props: ILanguage) => {
   return (
     <div className={styles['language']}>
       {isKr ? (
-        <Link href='/en'>English 🇺🇸</Link>
+        <Link href='https://www.chustory.net/en'>English 🇺🇸</Link>
       ) : (
-        <Link href='/'>한국어 🇰🇷</Link>
+        <Link href='https://www.chustory.net/'>한국어 🇰🇷</Link>
       )}
     </div>
   );
