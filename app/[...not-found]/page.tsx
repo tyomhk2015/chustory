@@ -1,9 +1,7 @@
-import styles from '../styles/Home.module.scss';
+import styles from '../../styles/Home.module.scss';
 import Link from 'next/link';
-import { FooterContent } from './components/server/FooterContent';
+import { FooterContent } from '../components/server/FooterContent';
 import type { Metadata } from 'next';
-
-export const dynamic = 'error';
 
 export const metadata: Metadata = {
   applicationName: 'Chunithm Character Story',
@@ -20,16 +18,16 @@ export const metadata: Metadata = {
   },
 };
 
-const NotFound = async () => {
+const NotFound = () => {
   return (
     <div className={styles['wrapper']}>
-      <div className={styles['notFound-wrapper']}>
+      <main className={styles['notFound-wrapper']}>
         <h1 className={styles['notFound__title']}>Return To </h1>
         <div className={styles['notFound__links']}>
           <Link href='/'>▶ Chustory 🇰🇷</Link>
           <Link href='/en'>▶ Chustory 🇺🇸</Link>
         </div>
-      </div>
+      </main>
       <footer className={styles['footer']}>
         <FooterContent />
       </footer>
