@@ -4,6 +4,7 @@ import ClientCharacterList from '../components/client/ClientCharacterList';
 import { FooterContent } from '../components/server/FooterContent';
 import prismaClient from '../lib/prismaClient';
 import type { Metadata } from 'next';
+import { Language } from '../components/server/Language';
 
 export const dynamic = 'error';
 
@@ -38,6 +39,8 @@ const EnPage = async () => {
         <h1 className={styles['main__title']}>Chunithm Character Story</h1>
         <ClientCharacterList characters={characters} />
       </main>
+
+      <Language isKr={false} />
 
       <footer className={styles['footer']}>
         <FooterContent />
