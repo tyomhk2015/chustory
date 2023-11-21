@@ -11,7 +11,6 @@ import React, {
 import Modal from './Modal';
 import {
   IClientCharacterListProps,
-  ICharacter,
   SelectedCharacter,
 } from '../../types';
 import { CharacterList } from './CharacterList';
