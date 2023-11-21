@@ -1,6 +1,6 @@
-import styles from '../../styles/Home.module.scss';
+import styles from '../styles/Home.module.scss';
 import Link from 'next/link';
-import { FooterContent } from '../components/server/FooterContent';
+import { FooterContent } from './components/server/FooterContent';
 import type { Metadata } from 'next';
 
 export const dynamic = 'error';
