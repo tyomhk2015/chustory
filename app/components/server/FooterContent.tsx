@@ -49,6 +49,8 @@ export const FooterContent = async () => {
         <a
           className={styles['footer__contact-toss']}
           href={process.env.TOSS_LINK}
+          target='_blank'
+          rel='noopener noreferrer'
         >
           {/* eslint-disable @next/next/no-img-element */}
           <img src='./toss.webp' alt='TOSS ID' />
@@ -56,6 +58,8 @@ export const FooterContent = async () => {
         <a
           className={styles['footer__contact-paypal']}
           href={process.env.PAYPAL_LINK}
+          target='_blank'
+          rel='noopener noreferrer'
         >
           {/* eslint-disable @next/next/no-img-element */}
           <img src='./paypal-color.svg' alt='Paypal ID' />
