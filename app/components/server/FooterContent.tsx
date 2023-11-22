@@ -53,6 +53,13 @@ export const FooterContent = async () => {
           {/* eslint-disable @next/next/no-img-element */}
           <img src='./toss.webp' alt='TOSS ID' />
         </a>
+        <a
+          className={styles['footer__contact-paypal']}
+          href={process.env.PAYPAL_LINK}
+        >
+          {/* eslint-disable @next/next/no-img-element */}
+          <img src='./paypal-color.svg' alt='Paypal ID' />
+        </a>
       </div>
     </>
   );
