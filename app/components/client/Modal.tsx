@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import styles from '../../../styles/Home.module.scss';
-import { IClientModalProps, IEpisode } from '../../types';
+import { IClientModalProps, IEpisode, ITransformResponse } from '../../types';
 import {
   ILLUSTRATION_PATH,
   ILLUSTRATION_TRANSFORM_PATH,
@@ -24,6 +24,8 @@ const Modal = ({
   const modalRef = useRef<HTMLDivElement>(null);
   const [episodes, setEpisodes] = useState<IEpisode[]>([]);
   const [isImageReady, setIsImageReady] = useState(false);
+  const [transformImgs, setTransformImgs] = useState(0);
+  const [currentTransform, setCurrentTransform] = useState('');
   const [isTransformExist, setIsTransformExist] = useState(false);
   const [isTransform, setIsTransform] = useState(false);
   const [isTransitionEnd, setIsTransitionEnd] = useState(false);
@@ -32,15 +34,17 @@ const Modal = ({
   const normalPath = ILLUSTRATION_PATH + selectedCharacter.id + IMG_TYPE;
   const transformPath =
     ILLUSTRATION_TRANSFORM_PATH + selectedCharacter.id + IMG_TYPE;
+  const extraTransformPath =
+    ILLUSTRATION_TRANSFORM_PATH + selectedCharacter.id + 'a' + IMG_TYPE;
 
   const toggleTransform = async () => {
     if (!isTransitionEnd) return;
     setIsImageReady(false);
     setIsTransitionEnd(false);
-    timeoutToggle = window.setTimeout(
-      () => setIsTransform((prevState) => !prevState),
-      TRANSITION_DURATION
-    );
+    timeoutToggle = window.setTimeout(() => {
+      setCurrentTransform(indicateTransformImg());
+      setIsTransform((prevState) => !prevState);
+    }, TRANSITION_DURATION);
   };
 
   const closeModal = () => {
@@ -57,19 +61,36 @@ const Modal = ({
     setIsTransitionEnd(true);
   };
 
+  const indicateTransformImg = (): string => {
+    let transformImgPath = '';
+    if (!transformImgs) {
+      transformImgPath = normalPath;
+    } else if (transformImgs === 1) {
+      transformImgPath = transformPath;
+    } else {
+      const random = Math.floor(Math.random() * 2) + 1;
+      transformImgPath = random === 2 ? extraTransformPath : transformPath;
+    }
+    return transformImgPath;
+  };
+
   useEffect(() => {
     if (!selectedCharacter || !selectedCharacter.id) return;
 
     const checkTransformImage = async () => {
       try {
-        const response = await(await fetch(`api/transform/${selectedCharacter.id}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: process.env.NEXT_PUBLIC_API_KEY as string,
-          }
-        })).json();
+        const response: ITransformResponse = await (
+          await fetch(`api/transform/${selectedCharacter.id}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: process.env.NEXT_PUBLIC_API_KEY as string,
+            },
+          })
+        ).json();
         setIsTransformExist(response.ok);
+        response.images && setTransformImgs(response.images);
+        setCurrentTransform(transformPath);
       } catch (error) {
         setIsTransformExist(false);
       }
@@ -141,7 +162,7 @@ const Modal = ({
             <ModalImage
               selectedCharacterName={selectedCharacter.name}
               normalPath={normalPath}
-              transformPath={transformPath}
+              transformPath={currentTransform}
               isTransform={isTransform}
               isImageReady={isImageReady}
               showImage={showImage}
