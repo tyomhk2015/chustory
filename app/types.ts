@@ -113,3 +113,9 @@ export interface IHeaders {
 export interface ILanguage {
   isKr: boolean;
 }
+
+export interface ITransformResponse {
+  status: number;
+  ok: boolean;
+  images?: number;
+}
