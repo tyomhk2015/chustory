@@ -54,7 +54,7 @@ export async function GET(req: NextRequest, context: IContext) {
   if (transformExists && extraTransformExists) {
     return NextResponse.json({ status: 200, ok: true, images: 2 });
   } else if (transformExists) {
-    return NextResponse.json({ status: 200, ok: true });
+    return NextResponse.json({ status: 200, ok: true, images: 1 });
   } else {
     return NextResponse.json({ status: 404, ok: false });
   }
