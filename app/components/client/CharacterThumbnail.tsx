@@ -43,6 +43,10 @@ const CharacterThumbnail = ({
     setIsImageReady(true);
   };
 
+  const blockContextMenu = (event: MouseEvent) => {
+    event.preventDefault();
+  }
+
   useLayoutEffect(() => {
     isInitial && showImage();
   }, []);
@@ -51,6 +55,7 @@ const CharacterThumbnail = ({
     <>
       {/* eslint-disable @next/next/no-img-element */}
       <img
+        onContextMenu={blockContextMenu}
         onMouseEnter={onMouseEnter}
         onTouchStart={onMouseEnter}
         onLoad={showImage}
