@@ -37,21 +37,30 @@ export async function GET(req: NextRequest, context: IContext) {
     'transform',
     `${id}a${IMG_TYPE}`
   );
+  const anotherExtraTransformFilePath = path.join(
+    process.cwd(),
+    'public',
+    'illustration',
+    'transform',
+    `${id}b${IMG_TYPE}`
+  );
 
   let transformExists = false;
   let extraTransformExists = false;
+  let anotherExtraTransformExists = false;
 
   try {
     await fsPromises.access(transformFilePath, fs.constants.F_OK);
     transformExists = true;
-  } catch (err) {}
-
-  try {
     await fsPromises.access(extraTransformFilePath, fs.constants.F_OK);
     extraTransformExists = true;
+    await fsPromises.access(anotherExtraTransformFilePath, fs.constants.F_OK);
+    anotherExtraTransformExists = true;
   } catch (err) {}
 
-  if (transformExists && extraTransformExists) {
+  if (anotherExtraTransformExists) {
+    return NextResponse.json({ status: 200, ok: true, images: 3 });
+  } else if (extraTransformExists) {
     return NextResponse.json({ status: 200, ok: true, images: 2 });
   } else if (transformExists) {
     return NextResponse.json({ status: 200, ok: true, images: 1 });

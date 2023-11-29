@@ -1,4 +1,4 @@
-$highlight-color: #f8be6b;
+$highlight-color: #f8c57d;
 $transition-duration: 0.4s;
 
 .wrapper {
@@ -22,7 +22,7 @@ $transition-duration: 0.4s;
   &-tab {
     align-items: center;
     align-self: normal;
-    background-color: #122a9a;
+    background-image: linear-gradient(to bottom right, #0a2188, #324fce);
     border-radius: 0.8rem;
     border: 2px solid #ffffff;
     box-shadow: 0 0.5rem 1rem 0 #7688d5;
@@ -48,10 +48,10 @@ $transition-duration: 0.4s;
     }
 
     &:hover {
-      background-color: $highlight-color;
+      background-image: linear-gradient(to bottom right, $highlight-color, #cc8a2e);
       color: #333333;
       cursor: pointer;
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
     &-list {
@@ -64,7 +64,7 @@ $transition-duration: 0.4s;
     }
 
     &--active {
-      background-color: $highlight-color;
+      background-image: linear-gradient(to bottom right, $highlight-color, #e39425);
       color: #333333;
       font-weight: 700;
     }
