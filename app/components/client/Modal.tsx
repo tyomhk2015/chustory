@@ -30,12 +30,8 @@ const Modal = ({
   const [isTransform, setIsTransform] = useState(false);
   const [isTransitionEnd, setIsTransitionEnd] = useState(false);
 
-  let timeoutToggle = 0;
   const normalPath = ILLUSTRATION_PATH + selectedCharacter.id + IMG_TYPE;
-  const transformPath =
-    ILLUSTRATION_TRANSFORM_PATH + selectedCharacter.id + IMG_TYPE;
-  const extraTransformPath =
-    ILLUSTRATION_TRANSFORM_PATH + selectedCharacter.id + 'a' + IMG_TYPE;
+  let timeoutToggle = 0;
 
   const toggleTransform = async () => {
     if (!isTransitionEnd) return;
@@ -62,16 +58,27 @@ const Modal = ({
   };
 
   const indicateTransformImg = (): string => {
-    let transformImgPath = '';
-    if (!transformImgs) {
-      transformImgPath = normalPath;
-    } else if (transformImgs === 1) {
-      transformImgPath = transformPath;
-    } else {
-      const random = Math.floor(Math.random() * 2) + 1;
-      transformImgPath = random === 2 ? extraTransformPath : transformPath;
+    const transformPath =
+      ILLUSTRATION_TRANSFORM_PATH + selectedCharacter.id + IMG_TYPE;
+    const extraTransformPath =
+      ILLUSTRATION_TRANSFORM_PATH + selectedCharacter.id + 'a' + IMG_TYPE;
+    const anotherExtraTransformPath =
+      ILLUSTRATION_TRANSFORM_PATH + selectedCharacter.id + 'b' + IMG_TYPE;
+
+    if (transformImgs === 1) {
+      return transformPath;
+    } else if (transformImgs > 1) {
+      const random = Math.floor(Math.random() * transformImgs) + 1;
+      switch (random) {
+        case 1:
+          return transformPath;
+        case 2:
+          return extraTransformPath;
+        case 3:
+          return anotherExtraTransformPath;
+      }
     }
-    return transformImgPath;
+    return normalPath;
   };
 
   useEffect(() => {
@@ -90,7 +97,7 @@ const Modal = ({
         ).json();
         setIsTransformExist(response.ok);
         response.images && setTransformImgs(response.images);
-        setCurrentTransform(transformPath);
+        setCurrentTransform(indicateTransformImg());
       } catch (error) {
         setIsTransformExist(false);
       }
