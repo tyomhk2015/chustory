@@ -1,4 +1,5 @@
 $highlight-color: #f8c57d;
+$actiive-tab-color: linear-gradient(to bottom right, $highlight-color, #fff23b);
 $transition-duration: 0.4s;
 
 .wrapper {
@@ -48,7 +49,7 @@ $transition-duration: 0.4s;
     }
 
     &:hover {
-      background-image: linear-gradient(to bottom right, $highlight-color, #cc8a2e);
+      background-image: $actiive-tab-color;
       color: #333333;
       cursor: pointer;
       transform: scale(1.05);
@@ -64,7 +65,7 @@ $transition-duration: 0.4s;
     }
 
     &--active {
-      background-image: linear-gradient(to bottom right, $highlight-color, #e39425);
+      background-image: $actiive-tab-color;
       color: #333333;
       font-weight: 700;
     }
