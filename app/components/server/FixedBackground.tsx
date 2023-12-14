@@ -4,7 +4,6 @@ export const FixedBackground = async () => {
   return (
     <>
       <div className={styles['fixed-background']} />
-      <div className={styles['fixed-background-mountain']} />
     </>
   );
 };

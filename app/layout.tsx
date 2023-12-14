@@ -27,7 +27,7 @@ export default function RootLayout({
           content='츄니즘, Chunithm, チュウニズム, チューニズム, 주식회사 SEGA, SEGA, セガ, 리듬게임, Rhythm Game, 音ゲー, BMS, 스토리, Story, ストーリー, 캐릭터, Character, キャラクター、キャラ―'
         />
         <meta name='rating' content='general' />
-        <meta name='theme-color' content='#040E26' />
+        <meta name='theme-color' content='#FDB7CA' />
         <link rel='icon' href='/favicon.ico' />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTAG_ID}`}
