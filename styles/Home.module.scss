@@ -1,5 +1,5 @@
-$highlight-color: #f8c57d;
-$actiive-tab-color: linear-gradient(to bottom right, $highlight-color, #fff23b);
+$highlight-color: #eeddfa;
+$active-tab-color: linear-gradient(to bottom right, #ffb6cb, $highlight-color);
 $transition-duration: 0.4s;
 
 .wrapper {
@@ -13,9 +13,14 @@ $transition-duration: 0.4s;
 
 .main {
   &__title {
-    color: #ffffff;
+    color: #242d61;
     font-size: 4.8rem;
     position: relative;
+    text-shadow:
+      0 0 2rem #ffffff,
+      0 0 2rem #ffffff,
+      0 0 2rem #ffffff,
+      0 0 2rem #ffffff;
   }
 }
 
@@ -23,15 +28,16 @@ $transition-duration: 0.4s;
   &-tab {
     align-items: center;
     align-self: normal;
-    background-image: linear-gradient(to bottom right, #0a2188, #324fce);
+    background: linear-gradient(to bottom right, #9ce7ff, #e2e3f8);
     border-radius: 0.8rem;
     border: 2px solid #ffffff;
-    box-shadow: 0 0.5rem 1rem 0 #7688d5;
-    color: #ffffff;
+    box-shadow: 0 0.5rem 1rem 0 #ddafe7;
+    color: #242d61;
     display: flex;
     font-size: 2.4rem;
     justify-content: center;
     max-width: 21.6rem;
+    height: 88px;
     overflow: hidden;
     padding: 1rem 0;
     position: relative;
@@ -49,8 +55,8 @@ $transition-duration: 0.4s;
     }
 
     &:hover {
-      background-image: $actiive-tab-color;
-      color: #333333;
+      background-image: $active-tab-color;
+      color: #535ed7;
       cursor: pointer;
       transform: scale(1.05);
     }
@@ -65,8 +71,8 @@ $transition-duration: 0.4s;
     }
 
     &--active {
-      background-image: $actiive-tab-color;
-      color: #333333;
+      background-image: $active-tab-color;
+      color: #535ed7;
       font-weight: 700;
     }
   }
@@ -83,7 +89,7 @@ $transition-duration: 0.4s;
     aspect-ratio: 1/1;
     border-radius: 0.8rem;
     border: 2px solid #ffffff;
-    box-shadow: 0 0.4rem 1rem 0 #7688d5;
+    box-shadow: 0 0.4rem 1rem 0 #ddafe7;
     max-width: 21.6rem;
     overflow: hidden;
     position: relative;
@@ -110,7 +116,7 @@ $transition-duration: 0.4s;
 
     &:hover {
       cursor: pointer;
-      background-color: $highlight-color;
+      background-color: #FF9D97;
       transform: scale(1.1);
     }
   }
@@ -120,8 +126,13 @@ $transition-duration: 0.4s;
   }
 
   &__version {
-    color: #ffffff;
+    color: #242d61;
     font-size: 3.2rem;
+    text-shadow:
+      0 0 2rem #ffffff,
+      0 0 2rem #ffffff,
+      0 0 2rem #ffffff,
+      0 0 2rem #ffffff;
   }
 
   &__thumbnail {
@@ -141,11 +152,24 @@ $transition-duration: 0.4s;
   gap: 1.6rem;
   margin-top: 4rem;
   text-align: center;
+  text-shadow:
+    0 0 2rem #ffffff,
+    0 0 2rem #ffffff,
+    0 0 2rem #ffffff,
+    0 0 2rem #ffffff;
 
   & a {
     color: #000000;
     font-weight: 700;
     text-decoration: none;
+  }
+
+  & small {
+    text-shadow:
+      0 0 2rem #ffffff,
+      0 0 2rem #ffffff,
+      0 0 2rem #ffffff,
+      0 0 2rem #ffffff;
   }
 
   &__copyright,
@@ -388,19 +412,6 @@ $transition-duration: 0.4s;
   right: 0;
   top: 0;
   z-index: 1;
-
-  &-mountain {
-    background-image: url(../public/bg_mountain.webp);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1;
-  }
 }
 
 .notFound {
@@ -438,6 +449,11 @@ $transition-duration: 0.4s;
 .language {
   text-align: center;
   margin: 6rem auto 0;
+  text-shadow:
+    0 0 2rem #ffffff,
+    0 0 2rem #ffffff,
+    0 0 2rem #ffffff,
+    0 0 2rem #ffffff;
 
   & > a {
   color: #000000;
@@ -464,6 +480,7 @@ $transition-duration: 0.4s;
   .version {
     &-tab {
       font-size: 1.2rem;
+      height: 56px;
 
       &-list {
         grid-template-columns: repeat(3, 1fr);

@@ -20,6 +20,10 @@ export const TRANSITION_DURATION = 300;
  */
 export const VERSIONS: IVersion[] = [
   {
+    name: 'LUMINOUS',
+    number: 8,
+  },
+  {
     name: 'SUN',
     number: 7,
   },

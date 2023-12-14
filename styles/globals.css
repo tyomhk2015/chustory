@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: #040e26;
+  background-color: #FDB7CA;
   font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
   font-size: 10px;
 }
@@ -27,11 +27,11 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #122a9a;
+  background-color: #FFB7CA;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #7688d5;
+  background-color: #eeddfa;
 }
 
 ::selection {
