@@ -9,17 +9,16 @@ import React, {
   useState,
 } from 'react';
 import Modal from './Modal';
-import {
-  IClientCharacterListProps,
-  SelectedCharacter,
-} from '../../types';
+import { IClientCharacterListProps, SelectedCharacter } from '../../types';
 import { CharacterList } from './CharacterList';
 import { VERSIONS } from '../../constants';
 import { VersionTabList } from './VersionTabList';
+import Request from './Request';
 
 const ClientCharacterList = ({
   characters,
 }: PropsWithChildren<IClientCharacterListProps>) => {
+  const isKr = true;
   const fixationRef = useRef(null);
   const [selectedCharacter, setSelectedCharacter] = useState<
     SelectedCharacter | undefined
@@ -80,33 +79,36 @@ const ClientCharacterList = ({
 
   useLayoutEffect(() => {
     const scripts = document.querySelectorAll('script');
-    scripts.forEach(script => {
+    scripts.forEach((script) => {
       script.parentNode?.removeChild(script);
     });
   }, []);
 
   return (
-    <div ref={fixationRef}>
-      <VersionTabList
-        selectedVersion={selectedVersion}
-        setSelectedVersion={setSelectedVersion}
-        setIsInitial={setIsInitial}
-      />
-      <div onClick={onClick}>
-        <CharacterList
-          characters={characters}
+    <>
+      <div ref={fixationRef}>
+        <VersionTabList
           selectedVersion={selectedVersion}
-          isInitial={isInitial}
+          setSelectedVersion={setSelectedVersion}
+          setIsInitial={setIsInitial}
         />
+        <div onClick={onClick}>
+          <CharacterList
+            characters={characters}
+            selectedVersion={selectedVersion}
+            isInitial={isInitial}
+          />
+        </div>
+        {isKr && <Request />}
+        {selectedCharacter && (
+          <Modal
+            selectedCharacter={selectedCharacter}
+            setSelectedCharacter={setSelectedCharacter}
+            unFixWrapper={unFixWrapper}
+          />
+        )}
       </div>
-      {selectedCharacter && (
-        <Modal
-          selectedCharacter={selectedCharacter}
-          setSelectedCharacter={setSelectedCharacter}
-          unFixWrapper={unFixWrapper}
-        />
-      )}
-    </div>
+    </>
   );
 };
 

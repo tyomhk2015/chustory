@@ -16,10 +16,7 @@ $transition-duration: 0.4s;
     color: #242d61;
     font-size: 4.8rem;
     position: relative;
-    text-shadow:
-      0 0 2rem #ffffff,
-      0 0 2rem #ffffff,
-      0 0 2rem #ffffff,
+    text-shadow: 0 0 2rem #ffffff, 0 0 2rem #ffffff, 0 0 2rem #ffffff,
       0 0 2rem #ffffff;
   }
 }
@@ -116,7 +113,7 @@ $transition-duration: 0.4s;
 
     &:hover {
       cursor: pointer;
-      background-color: #FF9D97;
+      background-color: #ff9d97;
       transform: scale(1.1);
     }
   }
@@ -128,10 +125,7 @@ $transition-duration: 0.4s;
   &__version {
     color: #242d61;
     font-size: 3.2rem;
-    text-shadow:
-      0 0 2rem #ffffff,
-      0 0 2rem #ffffff,
-      0 0 2rem #ffffff,
+    text-shadow: 0 0 2rem #ffffff, 0 0 2rem #ffffff, 0 0 2rem #ffffff,
       0 0 2rem #ffffff;
   }
 
@@ -152,10 +146,7 @@ $transition-duration: 0.4s;
   gap: 1.6rem;
   margin-top: 4rem;
   text-align: center;
-  text-shadow:
-    0 0 2rem #ffffff,
-    0 0 2rem #ffffff,
-    0 0 2rem #ffffff,
+  text-shadow: 0 0 2rem #ffffff, 0 0 2rem #ffffff, 0 0 2rem #ffffff,
     0 0 2rem #ffffff;
 
   & a {
@@ -165,10 +156,7 @@ $transition-duration: 0.4s;
   }
 
   & small {
-    text-shadow:
-      0 0 2rem #ffffff,
-      0 0 2rem #ffffff,
-      0 0 2rem #ffffff,
+    text-shadow: 0 0 2rem #ffffff, 0 0 2rem #ffffff, 0 0 2rem #ffffff,
       0 0 2rem #ffffff;
   }
 
@@ -449,19 +437,52 @@ $transition-duration: 0.4s;
 .language {
   text-align: center;
   margin: 6rem auto 0;
-  text-shadow:
-    0 0 2rem #ffffff,
-    0 0 2rem #ffffff,
-    0 0 2rem #ffffff,
+  text-shadow: 0 0 2rem #ffffff, 0 0 2rem #ffffff, 0 0 2rem #ffffff,
     0 0 2rem #ffffff;
 
   & > a {
-  color: #000000;
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.5;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
+    color: #000000;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+  }
+}
+
+.request {
+  &_wrapper {
+    bottom: 4rem;
+    position: fixed;
+    right: 4rem;
+  }
+
+  &_icon {
+    aspect-ratio: 1/1;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 6rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &_content {
+    position: relative;
+
+    & > p {
+      background: #ffffff;
+      border-radius: 0.8rem;
+      box-shadow: 0 0.5rem 1rem 0 #ddafe7;
+      bottom: 0;
+      line-height: 1.5;
+      padding: 1.2rem;
+      position: absolute;
+      font-size: 1.6rem;
+      right: 0;
+      width: 50rem;
+    }
   }
 }
 
@@ -565,6 +586,22 @@ $transition-duration: 0.4s;
     margin: 3rem auto 0;
     & > a {
       font-size: 1.3rem;
+    }
+  }
+
+  .request {
+    &_wrapper {
+      bottom: 2rem;
+      right: 2rem;
+    }
+
+    &_content {
+      & > p {
+        border-radius: 0.8rem;
+        padding: 1rem;
+        font-size: 1.6rem;
+        width: 25rem;
+      }
     }
   }
 }
