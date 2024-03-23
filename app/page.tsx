@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 };
 
 const Home = async () => {
+  const isKr = true;
   const characters: ICharacter[] = await prismaClient.character.findMany({
     select: {
       id: true,
@@ -35,12 +36,13 @@ const Home = async () => {
 
   return (
     <div className={styles['wrapper']}>
+
       <main>
         <h1 className={styles['main__title']}>Chunithm Character Story</h1>
         <ClientCharacterList characters={characters} />
       </main>
 
-      <Language isKr={true} />
+      <Language isKr={isKr} />
 
       <footer className={styles['footer']}>
         <FooterContent />
