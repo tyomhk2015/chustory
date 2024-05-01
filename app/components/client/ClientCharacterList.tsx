@@ -13,7 +13,6 @@ import { IClientCharacterListProps, SelectedCharacter } from '../../types';
 import { CharacterList } from './CharacterList';
 import { VERSIONS } from '../../constants';
 import { VersionTabList } from './VersionTabList';
-import Request from './Request';
 
 const ClientCharacterList = ({
   characters,
@@ -99,7 +98,6 @@ const ClientCharacterList = ({
             isInitial={isInitial}
           />
         </div>
-        {isKr && <Request />}
         {selectedCharacter && (
           <Modal
             selectedCharacter={selectedCharacter}
