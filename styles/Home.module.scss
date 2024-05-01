@@ -450,42 +450,6 @@ $transition-duration: 0.4s;
   }
 }
 
-.request {
-  &_wrapper {
-    bottom: 4rem;
-    position: fixed;
-    right: 4rem;
-  }
-
-  &_icon {
-    aspect-ratio: 1/1;
-    background-color: #ffffff;
-    border-radius: 50%;
-    width: 6rem;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  &_content {
-    position: relative;
-
-    & > p {
-      background: #ffffff;
-      border-radius: 0.8rem;
-      box-shadow: 0 0.5rem 1rem 0 #ddafe7;
-      bottom: 0;
-      line-height: 1.5;
-      padding: 1.2rem;
-      position: absolute;
-      font-size: 1.6rem;
-      right: 0;
-      width: 50rem;
-    }
-  }
-}
-
 @media only screen and (max-width: 768px) {
   .wrapper {
     padding: 1rem;
@@ -586,22 +550,6 @@ $transition-duration: 0.4s;
     margin: 3rem auto 0;
     & > a {
       font-size: 1.3rem;
-    }
-  }
-
-  .request {
-    &_wrapper {
-      bottom: 2rem;
-      right: 2rem;
-    }
-
-    &_content {
-      & > p {
-        border-radius: 0.8rem;
-        padding: 1rem;
-        font-size: 1.6rem;
-        width: 25rem;
-      }
     }
   }
 }
